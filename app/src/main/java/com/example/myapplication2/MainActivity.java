@@ -19,4 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    public void goToSouar(View view) {
+        Intent intent = new Intent(this, Main3Activity.class);
+        startActivity(intent);
+    }
 }
