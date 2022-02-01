@@ -19,8 +19,8 @@ public class Main3Activity extends AppCompatActivity implements SurfaceHolder.Ca
         setContentView(R.layout.activity_main3);
         surfaceView = findViewById(R.id.surfaceView);
         surfaceHolder = surfaceView.getHolder();
-        surfaceHolder.addCallback(Main3Activity.this);
 
+        surfaceHolder.addCallback(Main3Activity.this);
     }
 
     @Override
@@ -37,6 +37,6 @@ public class Main3Activity extends AppCompatActivity implements SurfaceHolder.Ca
 
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder) {
-
+        mediaPlayer.release();
     }
 }

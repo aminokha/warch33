@@ -14,11 +14,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
 
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="181dp"
-        android:layout_height="262dp"
-        android:translationX="70dp"
-        android:translationY="400dp" />
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/surfaceView"
+        android:layout_marginTop="96dp"
+        app:srcCompat="@android:drawable/ic_media_play" />
 
 </RelativeLayout>
