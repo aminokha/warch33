@@ -1,42 +1,45 @@
 package com.example.myapplication2;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
 
-public class Main3Activity extends AppCompatActivity implements SurfaceHolder.Callback {
-    SurfaceView surfaceView;
+public class Main3Activity extends AppCompatActivity {
+    VideoView videoView;
+    MediaController mediaController;
     SurfaceHolder surfaceHolder;
     MediaPlayer mediaPlayer;
+    LinearLayoutCompat videoLayout;
+    ImageButton playButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-        surfaceView = findViewById(R.id.surfaceView);
-        surfaceHolder = surfaceView.getHolder();
+        playButton = findViewById(R.id.playButton);
+        videoView = findViewById(R.id.videoView);
+        videoLayout = findViewById(R.id.videoLayout);
+        mediaController = new MediaController(this);
+        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.fatiha);
 
-        surfaceHolder.addCallback(Main3Activity.this);
-    }
-
-    @Override
-    public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
-        mediaPlayer = MediaPlayer.create(this,R.raw.fatiha);
-        mediaPlayer.setDisplay(surfaceHolder);
-        mediaPlayer.start();
-    }
-
-    @Override
-    public void surfaceChanged(@NonNull SurfaceHolder surfaceHolder, int i, int i1, int i2) {
+        mediaController.setAnchorView(videoLayout);
+        mediaController.setVisibility(View.INVISIBLE);
+        videoView.setMediaController(mediaController);
+        videoView.start();
 
     }
 
-    @Override
-    public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder) {
-        mediaPlayer.release();
+    public void pause(View view) {
+        videoView.pause();
     }
 }
