@@ -6,9 +6,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +32,7 @@ public class Main2Activity extends AppCompatActivity {
     RadioButton radioButtonFatha;
     RadioButton radioButtonThama;
     RadioButton radioButtonKasra;
-    Button playButton;
+    ImageButton playButton;
     StringCharacterIterator stringCharacterIterator;
 
 
@@ -56,7 +58,7 @@ public class Main2Activity extends AppCompatActivity {
         stringCharacterIterator = new StringCharacterIterator("ءبتثجحخدذرزسشصضطظعغفقكلمنهوي");
 
 
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 // TODO Auto-generated method stub
@@ -149,4 +151,5 @@ public class Main2Activity extends AppCompatActivity {
             harf.setText(ch);
         }
     }
+
 }
