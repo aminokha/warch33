@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.MediaController;
@@ -52,7 +51,13 @@ public class Main3Activity extends AppCompatActivity {
         annas_card = findViewById(R.id.annas_card);
         play_button = findViewById(R.id.play_button);
         mediaController = new MediaController(this);
-        videoView.setOnCompletionListener(this::repeat);
+        videoView.setOnCompletionListener(mediaPlayer1 -> {
+            seekBar.setProgress(seekBar.getProgress()-1);
+            repeat(mediaPlayer1);
+//            play_button.setImageResource(R.drawable.pause_icon);
+//            play_button.setTag("pause");
+
+        });
         switch_only_aya.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
                 aya_number.setEnabled(true);
@@ -81,18 +86,28 @@ public class Main3Activity extends AppCompatActivity {
         });
         videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.fatiha);
         initializeCard();
-        play_button.setOnClickListener(this::play);
+        play_button.setOnClickListener(this::play_or_pause);
 
         mediaController.setAnchorView(videoLayout);
         mediaController.setVisibility(View.INVISIBLE);
         videoView.setMediaController(mediaController);
     }
 
+    private void play_or_pause(View view) {
+        if (((String) play_button.getTag()).equals("play")) {
+            play(view);
+        } else {
+            videoView.pause();
+            play_button.setImageResource(R.drawable.play_icon);
+            play_button.setTag("play");
+        }
+    }
     private void play(View view) {
         if (switch_only_aya.isChecked()) {
-
+            // معرفة السورة المختارة
             switch (sura_name.getText().toString()) {
                 case "ســورة الفـاتـحـة": {
+                    // معرفة رقم الآية المختارة
                     switch (aya_number.getText().toString()) {
                         case "1":
                             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.fatiha_1);
@@ -108,27 +123,24 @@ public class Main3Activity extends AppCompatActivity {
                 break;
             }
         }
-        if (((String) play_button.getTag()).equals("play")) {
+
             videoView.start();
             play_button.setImageResource(R.drawable.pause_icon);
-            play_button.setTag("stop");
-        } else {
-            play_button.setImageResource(R.drawable.play_icon);
-            videoView.pause();
-            play_button.setTag("play");
+            play_button.setTag("pause");
 
-        }
     }
 
     private void repeat(MediaPlayer mediaPlayer) {
         int progress = seekBar.getProgress();
         if (progress > 0) {
-            seekBar.setProgress(progress - 1);
+//            seekBar.setProgress(--progress);
             mediaPlayer.start();
+        } else {
+            play_button.setImageResource(R.drawable.play_icon);
+            play_button.setTag("play");
         }
+
     }
-
-
     private void initializeCard() {
         fatiha_card.setOnClickListener(view -> {
             animateCard(view);

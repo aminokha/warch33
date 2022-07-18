@@ -132,7 +132,7 @@ public class Main2Activity extends AppCompatActivity {
         radioButtonFatha.setEnabled(false);
         radioButtonThama.setEnabled(false);
         radioButtonKasra.setEnabled(false);
-        mediaPlayer.start();
+        repeat(mediaPlayer);
     }
 
 
