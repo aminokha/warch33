@@ -12,56 +12,45 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_18sdp"
         android:gravity="center"
         android:layoutDirection="rtl"
         android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="20dp"
-        app:layout_constraintBottom_toTopOf="@id/harakat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_20sdp">
 
         <ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:contentDescription="previous letre"
             android:onClick="previousHarf"
-
-            app:srcCompat="@android:drawable/ic_media_play"
-            tools:layout_editor_absoluteX="220dp"
-            tools:layout_editor_absoluteY="447dp" />
-
+            app:srcCompat="@android:drawable/ic_media_play" />
         <TextView
             android:id="@+id/harf"
-            android:layout_width="110dp"
-            android:layout_height="165dp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_80sdp"
             android:text="ء"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="100sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="183dp"
-            tools:layout_editor_absoluteY="113dp" />
-
+            android:textSize="@dimen/_50ssp"
+            android:textStyle="bold" />
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginHorizontal="10dp"
+            android:layout_height="52dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:contentDescription="next letre"
             android:onClick="nextHarf"
             android:rotation="180"
-            app:srcCompat="@android:drawable/ic_media_play"
-            tools:layout_editor_absoluteX="80dp"
-            tools:layout_editor_absoluteY="178dp" />
+            app:srcCompat="@android:drawable/ic_media_play" />
+
+
 
     </LinearLayout>
 
@@ -69,11 +58,11 @@
         android:id="@+id/harakat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="@dimen/_15sdp"
 
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:orientation="horizontal"
-        android:paddingHorizontal="7dp">
+        android:paddingHorizontal="@dimen/_7sdp">
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -86,42 +75,42 @@
             <RadioButton
                 android:id="@+id/radioButtonFatha"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="@dimen/_48sdp"
                 android:layout_gravity="right"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_weight="1"
                 android:checked="true"
                 android:layoutDirection="rtl"
                 android:text="فتحة"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="@dimen/_20ssp" />
 
             <RadioButton
                 android:id="@+id/radioButtonThama"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="@dimen/_48sdp"
                 android:layout_gravity="right"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_weight="1"
                 android:layoutDirection="rtl"
                 android:text="ضمة"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="@dimen/_20ssp" />
 
             <RadioButton
                 android:id="@+id/radioButtonKasra"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="@dimen/_48sdp"
                 android:layout_gravity="right"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_weight="1"
                 android:layoutDirection="rtl"
                 android:text="كسرة"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="@dimen/_20ssp" />
 
         </RadioGroup>
 
@@ -130,20 +119,20 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/_40sdp"
         android:layoutDirection="rtl">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="70dp"
+            android:layout_width="@dimen/_70sdp"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_row="0"
             android:textAlignment="center"
             android:text="مرات التكرار"
             android:textColor="@color/white"
-            android:textSize="23sp" />
+            android:textSize="@dimen/_23sdp" />
 
         <SeekBar
             android:id="@+id/seekBar"
@@ -160,12 +149,12 @@
 
         <TextView
             android:id="@+id/repeat"
-            android:layout_width="65dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_50sdp"
             android:text="1"
             android:textColor="@color/white"
             android:layout_gravity="bottom"
-            android:textSize="23sp" />
+            android:textSize="@dimen/_23ssp" />
 
 
     </GridLayout>
@@ -174,7 +163,7 @@
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/_50sdp"
         android:onClick="play"
         android:contextClickable="true"
         android:src="@drawable/play_icon"

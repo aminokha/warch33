@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/back2"
+    android:background="@color/black"
     tools:context=".Main3Activity">
 
     <ImageView
@@ -99,6 +99,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/alfalak"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_5sdp"
@@ -127,6 +128,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/alikhlas"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_5sdp"
@@ -148,13 +150,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="سورة الفلق"
+                        android:text="سورة الاخلاص"
                         android:textSize="@dimen/_16ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/alfil"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_5sdp"
@@ -176,13 +179,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="سورة الفلق"
+                        android:text="سورة الفيل"
                         android:textSize="@dimen/_16ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/alhomaza"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_5sdp"
@@ -204,7 +208,119 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="سورة الفلق"
+                        android:text="سورة الهمزة"
+                        android:textSize="@dimen/_16ssp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/albaiina"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_margin="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:src="@drawable/img3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="سورة البينة"
+                        android:textSize="@dimen/_16ssp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/alkader"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_margin="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:src="@drawable/img3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="سورة القدر"
+                        android:textSize="@dimen/_16ssp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/alalak"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_margin="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:src="@drawable/img3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="سورة العلق"
+                        android:textSize="@dimen/_16ssp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/acharh"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_margin="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:src="@drawable/img3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="سورة الشرح"
                         android:textSize="@dimen/_16ssp" />
 
                 </LinearLayout>
@@ -215,16 +331,15 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/videoLayout"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/_200sdp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
         <VideoView
             android:id="@+id/videoView"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_296sdp"
             android:layout_height="@dimen/_175sdp"
-            android:layout_marginHorizontal="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_15sdp" />
+            android:layout_marginTop="@dimen/_10sdp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <TextView

@@ -34,6 +34,15 @@ public class Main3Activity extends AppCompatActivity {
     EditText aya_number;
     CardView fatiha_card;
     CardView annas_card;
+    CardView alfalk_card;
+    CardView alikhlas_card;
+    CardView alfil_card;
+    CardView alhomaza_card;
+    CardView albaiina_card;
+    CardView alkader_card;
+    CardView alalak_card;
+    CardView acharh_card;
+
     ImageButton play_button;
 
     @Override
@@ -49,6 +58,14 @@ public class Main3Activity extends AppCompatActivity {
         switch_only_aya = findViewById(R.id.chip4);
         fatiha_card = findViewById(R.id.fatiha_card);
         annas_card = findViewById(R.id.annas_card);
+        alfalk_card = findViewById(R.id.alfalak);
+        alikhlas_card = findViewById(R.id.alikhlas);
+        alfil_card = findViewById(R.id.alfil);
+        alhomaza_card = findViewById(R.id.alhomaza);
+        albaiina_card = findViewById(R.id.albaiina);
+        alkader_card = findViewById(R.id.alkader);
+        alalak_card = findViewById(R.id.alalak);
+        acharh_card = findViewById(R.id.acharh);
         play_button = findViewById(R.id.play_button);
         mediaController = new MediaController(this);
         videoView.setOnCompletionListener(mediaPlayer1 -> {
@@ -155,6 +172,78 @@ public class Main3Activity extends AppCompatActivity {
             animateCard(view);
             sura_name.setText("ســورة النــاس");
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.annas);
+            if (seekBar.getProgress() > 0) {
+                seekBar.setProgress(seekBar.getProgress() - 1);
+//                videoView.start();
+            }
+        });
+        alfalk_card.setOnClickListener(view -> {
+            animateCard(view);
+            sura_name.setText("ســورة الفلق");
+            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alfalak);
+            if (seekBar.getProgress() > 0) {
+                seekBar.setProgress(seekBar.getProgress() - 1);
+//                videoView.start();
+            }
+        });
+        alikhlas_card.setOnClickListener(view -> {
+            animateCard(view);
+            sura_name.setText("ســورة الاخلاص");
+            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alikhlas);
+            if (seekBar.getProgress() > 0) {
+                seekBar.setProgress(seekBar.getProgress() - 1);
+//                videoView.start();
+            }
+        });
+        alfil_card.setOnClickListener(view -> {
+            animateCard(view);
+            sura_name.setText("ســورة الفيل");
+            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alfil);
+            if (seekBar.getProgress() > 0) {
+                seekBar.setProgress(seekBar.getProgress() - 1);
+//                videoView.start();
+            }
+        });
+        alhomaza_card.setOnClickListener(view -> {
+            animateCard(view);
+            sura_name.setText("ســورة الهمزة");
+            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alhomaza);
+            if (seekBar.getProgress() > 0) {
+                seekBar.setProgress(seekBar.getProgress() - 1);
+//                videoView.start();
+            }
+        });
+        albaiina_card.setOnClickListener(view -> {
+            animateCard(view);
+            sura_name.setText("ســورة البينة");
+            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.albaiina);
+            if (seekBar.getProgress() > 0) {
+                seekBar.setProgress(seekBar.getProgress() - 1);
+//                videoView.start();
+            }
+        });
+        alkader_card.setOnClickListener(view -> {
+            animateCard(view);
+            sura_name.setText("ســورة القدر");
+            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alkader);
+            if (seekBar.getProgress() > 0) {
+                seekBar.setProgress(seekBar.getProgress() - 1);
+//                videoView.start();
+            }
+        });
+        alalak_card.setOnClickListener(view -> {
+            animateCard(view);
+            sura_name.setText("ســورة العلق");
+            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alalak);
+            if (seekBar.getProgress() > 0) {
+                seekBar.setProgress(seekBar.getProgress() - 1);
+//                videoView.start();
+            }
+        });
+        acharh_card.setOnClickListener(view -> {
+            animateCard(view);
+            sura_name.setText("ســورة الشرح");
+            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.acharh);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
 //                videoView.start();
