@@ -24,7 +24,6 @@
         android:paddingVertical="@dimen/_20sdp">
 
         <ImageButton
-            android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
@@ -41,7 +40,6 @@
             android:textSize="@dimen/_50ssp"
             android:textStyle="bold" />
         <ImageButton
-            android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="52dp"
             android:layout_marginHorizontal="@dimen/_10sdp"
@@ -55,7 +53,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/harakat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_15sdp"
@@ -65,7 +62,6 @@
         android:paddingHorizontal="@dimen/_7sdp">
 
         <RadioGroup
-            android:id="@+id/radioGroup"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -3,11 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.2801358234295416" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.266" />
+        <entry key="app/src/main/res/drawable-v24/layout_radius.xml" value="0.266" />
         <entry key="app/src/main/res/drawable/border1.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.266" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.266" />
+        <entry key="app/src/main/res/layout-hdpi/activity_main3.xml" value="0.267578125" />
+        <entry key="app/src/main/res/layout-mdpi/activity_main3.xml" value="1.1833740831295843" />
+        <entry key="app/src/main/res/layout-small/activity_main3.xml" value="1.5088105726872247" />
+        <entry key="app/src/main/res/layout-xxhdpi/activity_main3.xml" value="0.30043859649122806" />
+        <entry key="app/src/main/res/layout-xxxhdpi/activity_main3.xml" value="0.22532894736842105" />
         <entry key="app/src/main/res/layout/aaa.xml" value="0.26328125" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.255859375" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_main3.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main3.xml" value="0.267578125" />
+        <entry key="app/src/main/res/layout/layout_radius.xml" value="0.267578125" />
+        <entry key="app/src/main/res/layout/panel.xml" value="0.266796875" />
       </map>
     </option>
   </component>
