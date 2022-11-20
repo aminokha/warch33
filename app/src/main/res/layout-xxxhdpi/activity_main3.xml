@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#98b0a8"
     android:gravity="top"
     android:orientation="vertical"
+    android:keepScreenOn="true"
     tools:context=".Main3Activity">
 
     <HorizontalScrollView
@@ -375,7 +376,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_10sdp"
             android:layout_below="@+id/sura_name"
-            android:background="@drawable/border1" />
+            android:background="@drawable/line" />
 
     <ImageView
         android:id="@+id/barrier"
@@ -383,7 +384,7 @@
         android:layout_height="@dimen/_10sdp"
         android:layout_below="@+id/scrollView1"
         android:layout_marginTop="-14dp"
-        android:background="@drawable/border1" />
+        android:background="@drawable/line" />
 
 
     <TextView
@@ -400,28 +401,29 @@
         android:textSize="@dimen/_18ssp" />
 
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <FrameLayout
         android:id="@+id/videoLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_android_black_24dp"
+        android:layout_marginTop="@dimen/_20ssp"
+        android:background="@drawable/rectangle"
         android:orientation="vertical"
-        android:padding="@dimen/_3sdp"
-        android:layout_marginTop="@dimen/_20ssp">
+        android:outlineProvider="background"
+        android:padding="@dimen/_3sdp">
 
         <VideoView
             android:id="@+id/videoView"
             android:layout_width="@dimen/_296sdp"
-            android:layout_height="@dimen/_175sdp"/>
+            android:layout_height="@dimen/_175sdp" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/barrier"
-        app:cardBackgroundColor="#E4E9EF"
+        app:cardBackgroundColor="#98b0a8"
 
 
         >
@@ -430,8 +432,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/ic_android_black_24dp"
-            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/rounded_backround"
+            android:layout_marginHorizontal="0dp"
             android:paddingTop="@dimen/_40sdp">
 
             <EditText
@@ -461,7 +463,7 @@
                 android:background="#0000"
                 android:src="@drawable/play_icon"
                 android:tag="play"
-                app:tint="#364b44" />
+                app:tint="@color/white" />
 
 
             <SeekBar
@@ -469,20 +471,17 @@
                 style="@android:style/Widget.SeekBar"
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_alignBottom="@+id/textView3"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_toEndOf="@+id/repeat"
-                android:layout_toLeftOf="@id/textView3"
+                android:layout_toStartOf="@id/textView3"
                 android:layoutDirection="rtl"
                 android:max="100"
                 android:min="0"
                 android:paddingEnd="0dp"
-                android:paddingLeft="@dimen/_8sdp"
-                android:paddingRight="@dimen/_8sdp"
                 android:paddingStart="0dp"
-                android:progress="1"
-                android:progressBackgroundTint="#98b0a8"
-                android:progressTint="#00af8f"
+                android:progress="20"
+                android:progressBackgroundTint="@color/white"
+                android:progressTint="#006fb3"
                 android:thumb="@color/design_default_color_error" />
 
 
@@ -493,7 +492,7 @@
                 android:layout_alignParentRight="true"
                 android:paddingHorizontal="@dimen/_20sdp"
                 android:text="التكرار"
-                android:textColor="#364b44"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_16ssp" />
 
             <TextView
@@ -504,7 +503,7 @@
                 android:layout_marginLeft="@dimen/_40sdp"
                 android:text="1"
                 android:textAlignment="viewEnd"
-                android:textColor="#364b44"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_16ssp" />
 
             <TextView
@@ -516,7 +515,7 @@
                 android:layout_toRightOf="@id/chip4"
                 android:paddingRight="@dimen/_20sdp"
                 android:text="آية واحدة"
-                android:textColor="#364b44"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_16ssp" />
 
             <TextView
@@ -528,7 +527,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:paddingRight="@dimen/_20sdp"
                 android:text="رقم الآية"
-                android:textColor="#364b44"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_16ssp" />
 
 
@@ -542,9 +541,7 @@
                 android:layout_marginRight="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layoutDirection="rtl"
-
-                android:paddingVertical="@dimen/_10sdp"
-                app:thumbTint="#98b0a8" />
+                app:thumbTint="@color/white" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.SeekBar;
@@ -27,10 +28,10 @@ import androidx.cardview.widget.CardView;
 
 public class Main3Activity extends AppCompatActivity {
     VideoView videoView;
+    FrameLayout videoLayout;
     MediaController mediaController;
     SurfaceHolder surfaceHolder;
     MediaPlayer mediaPlayer;
-    LinearLayoutCompat videoLayout;
     SeekBar seekBar;
     TextView repeat_textView;
     TextView sura_name;
@@ -46,6 +47,7 @@ public class Main3Activity extends AppCompatActivity {
     CardView alkader_card;
     CardView alalak_card;
     CardView acharh_card;
+
 
     ImageButton play_button;
 
@@ -75,8 +77,6 @@ public class Main3Activity extends AppCompatActivity {
         videoView.setOnCompletionListener(mediaPlayer1 -> {
             seekBar.setProgress(seekBar.getProgress() - 1);
             repeat(mediaPlayer1);
-//            play_button.setImageResource(R.drawable.pause_icon);
-//            play_button.setTag("pause");
 
         });
         switch_only_aya.setOnCheckedChangeListener((compoundButton, b) -> {
@@ -124,7 +124,8 @@ public class Main3Activity extends AppCompatActivity {
     }
 
     private void play_or_pause(View view) {
-        if (((String) play_button.getTag()).equals("play")) {
+//        if (play_button.getTag().toString().equals("play")) {
+        if (!videoView.isPlaying()) {
             play(view);
         } else {
             videoView.pause();
@@ -527,7 +528,6 @@ public class Main3Activity extends AppCompatActivity {
                             return;
                     }
                 }
-                break;
             }
         }
 
@@ -645,7 +645,7 @@ public class Main3Activity extends AppCompatActivity {
     private void animateCard(View view) {
         view.animate()
                 .scaleX(1.2F).scaleY(1.2F)
-                .setDuration(500)
+                .setDuration(200)
                 .setInterpolator(new LinearInterpolator()).setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animator) {

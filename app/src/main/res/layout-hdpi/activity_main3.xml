@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:gravity="top"
+    android:background="#98b0a8"
     android:orientation="vertical"
+    android:keepScreenOn="true"
     tools:context=".Main3Activity">
 
     <HorizontalScrollView
@@ -26,8 +27,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/fatiha_card"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_5sdp">
@@ -49,11 +50,10 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة الفاتحة"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
 
@@ -61,8 +61,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/annas_card"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_5sdp">
@@ -84,11 +84,10 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة الناس"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
 
@@ -96,8 +95,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/alfalak"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_10sdp">
@@ -119,19 +118,18 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة الفلق"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/alikhlas"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_10sdp">
@@ -153,19 +151,18 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة الاخلاص"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/alfil"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_10sdp">
@@ -187,19 +184,18 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة الفيل"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/alhomaza"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_10sdp">
@@ -221,19 +217,18 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة الهمزة"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/albaiina"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_10sdp">
@@ -255,19 +250,18 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة البينة"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/alkader"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_10sdp">
@@ -289,19 +283,18 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة القدر"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/alalak"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_10sdp">
@@ -323,19 +316,18 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة العلق"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/acharh"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_10sdp">
@@ -358,11 +350,10 @@
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="-30dp"
                         android:background="#364b44"
-                        android:paddingTop="5dp"
                         android:text="سورة الشرح"
                         android:textAlignment="center"
                         android:textColor="#98b0a8"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -375,7 +366,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_10sdp"
             android:layout_below="@+id/sura_name"
-            android:background="@drawable/border1" />
+            android:background="@drawable/line" />
 
     <ImageView
         android:id="@+id/barrier"
@@ -383,7 +374,7 @@
         android:layout_height="@dimen/_10sdp"
         android:layout_below="@+id/scrollView1"
         android:layout_marginTop="-14dp"
-        android:background="@drawable/border1" />
+        android:background="@drawable/line" />
 
 
     <TextView
@@ -397,7 +388,7 @@
         android:contextClickable="true"
         android:text="ســورة الفـاتـحـة"
         android:textColor="#364b44"
-        android:textSize="@dimen/_18ssp" />
+        android:textSize="@dimen/_14ssp" />
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -405,15 +396,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_android_black_24dp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20ssp"
+        android:background="@drawable/rectangle"
         android:orientation="vertical"
-        android:padding="@dimen/_3sdp"
-        android:layout_marginTop="@dimen/_20ssp">
+        android:padding="@dimen/_3sdp">
 
         <VideoView
             android:id="@+id/videoView"
-            android:layout_width="@dimen/_296sdp"
-            android:layout_height="@dimen/_175sdp"/>
+            android:layout_width="@dimen/_256sdp"
+            android:layout_height="@dimen/_175sdp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -421,7 +413,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/barrier"
-        app:cardBackgroundColor="#E4E9EF"
+        app:cardBackgroundColor="#98b0a8"
 
 
         >
@@ -429,10 +421,10 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="0dp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/ic_android_black_24dp"
-            android:layout_margin="@dimen/_10sdp"
-            android:paddingTop="@dimen/_20sdp">
+            android:background="@drawable/rounded_backround"
+            android:paddingTop="@dimen/_10sdp">
 
             <EditText
                 android:id="@+id/aya_number"
@@ -440,7 +432,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/chip4"
                 android:layout_marginRight="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_toLeftOf="@+id/textView4"
                 android:background="#999999"
                 android:ems="3"
@@ -448,7 +440,7 @@
                 android:inputType="numberDecimal"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_16sdp" />
+                android:textSize="@dimen/_13sdp" />
 
 
             <ImageButton
@@ -460,7 +452,7 @@
                 android:background="#0000"
                 android:src="@drawable/play_icon"
                 android:tag="play"
-                app:tint="#364b44" />
+                app:tint="@color/white" />
 
 
             <SeekBar
@@ -469,7 +461,10 @@
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_alignBottom="@+id/textView3"
-                android:layout_toLeftOf="@id/textView3"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/repeat"
+                android:layout_toStartOf="@+id/textView3"
                 android:layoutDirection="rtl"
                 android:max="100"
                 android:min="0"
@@ -477,9 +472,9 @@
                 android:paddingLeft="@dimen/_8sdp"
                 android:paddingRight="@dimen/_8sdp"
                 android:paddingStart="0dp"
-                android:progress="1"
-                android:progressBackgroundTint="#98b0a8"
-                android:progressTint="#00af8f"
+                android:progress="30"
+                android:progressBackgroundTint="@color/white"
+                android:progressTint="#006fb3"
                 android:thumb="@color/design_default_color_error" />
 
 
@@ -490,8 +485,8 @@
                 android:layout_alignParentRight="true"
                 android:paddingHorizontal="@dimen/_20sdp"
                 android:text="مرات التكرار"
-                android:textColor="#364b44"
-                android:textSize="@dimen/_16ssp" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp" />
 
             <TextView
                 android:id="@+id/repeat"
@@ -501,20 +496,19 @@
                 android:layout_marginLeft="@dimen/_40sdp"
                 android:text="1"
                 android:textAlignment="viewEnd"
-                android:textColor="#364b44"
-                android:textSize="@dimen/_16ssp" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_below="@id/textView3"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_toRightOf="@id/chip4"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:paddingRight="@dimen/_20sdp"
                 android:text="تكرار آية واحدة "
-                android:textColor="#364b44"
-                android:textSize="@dimen/_16ssp" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -522,26 +516,23 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/chip4"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:paddingRight="@dimen/_20sdp"
                 android:text="رقم الآية المكررة"
-                android:textColor="#364b44"
-                android:textSize="@dimen/_16ssp" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp" />
 
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/chip4"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_alignParentLeft="true"
                 android:layout_below="@id/textView3"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginRight="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toStartOf="@+id/progress_bar"
                 android:layoutDirection="rtl"
 
-                android:paddingVertical="@dimen/_10sdp"
-                app:thumbTint="#98b0a8" />
+                app:thumbTint="@color/white" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
