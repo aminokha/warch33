@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="#98b0a8"
+    android:keepScreenOn="true"
+    tools:context=".Main2Activity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginHorizontal="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    >
+    <FrameLayout
+        android:id="@+id/videoLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rectangle"
+        android:orientation="vertical"
+        android:outlineProvider="background"
+        android:padding="@dimen/_3sdp">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="@dimen/_266sdp"
+            android:layout_height="111dp" />
+    </FrameLayout>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:gravity="center"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_20sdp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:contentDescription="previous letre"
+            android:onClick="previousHarf"
+            app:srcCompat="@android:drawable/ic_media_play" />
+        <TextView
+            android:id="@+id/harf"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:text="ء"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_40ssp"
+            android:textStyle="bold" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:contentDescription="next letre"
+            android:onClick="nextHarf"
+            android:rotation="180"
+            app:srcCompat="@android:drawable/ic_media_play" />
+
+
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/choice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="همزة مسهلة"
+            android:layoutDirection="rtl"
+            android:textColor="#364b44"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:buttonTint="#006fb3"
+            android:textSize="@dimen/_15ssp"/>
+        <RadioButton
+            android:id="@+id/choice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="همزة محققة"
+            android:checked="true"
+            android:textColor="#364b44"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layoutDirection="rtl"
+            android:layout_gravity="right"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:buttonTint="#006fb3"
+            android:textSize="@dimen/_15ssp"/>
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_7sdp">
+
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonFatha"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:checked="true"
+                android:buttonTint="#006fb3"
+                android:layoutDirection="rtl"
+                android:text="فتحة"
+                android:textColor="#364b44"
+                android:textSize="@dimen/_15ssp" />
+
+            <RadioButton
+                android:id="@+id/radioButtonThama"
+                android:text="ضمة"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:buttonTint="#006fb3"
+                android:layoutDirection="rtl"
+                android:textColor="#364b44"
+                android:textSize="@dimen/_15ssp" />
+
+            <RadioButton
+                android:id="@+id/radioButtonKasra"
+                android:text="كسرة"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:buttonTint="#006fb3"
+                android:layoutDirection="rtl"
+                android:textColor="#364b44"
+                android:textSize="@dimen/_15ssp" />
+            <RadioButton
+                android:id="@+id/radioButtonSokoun"
+                android:text="سكون"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:buttonTint="#006fb3"
+                android:layoutDirection="rtl"
+                android:textColor="#364b44"
+                android:textSize="@dimen/_15ssp" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_row="0"
+            android:textAlignment="center"
+            android:text="مرات التكرار"
+            android:textColor="#364b44"
+            android:textSize="@dimen/_14sdp" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            style="@android:style/Widget.SeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="center|fill"
+            android:layout_row="0"
+            android:max="300"
+            android:min="0"
+            android:progress="50"
+            android:progressBackgroundTint="@color/white"
+            android:progressTint="#006fb3"
+            android:thumb="@color/design_default_color_error" />
+
+        <TextView
+            android:id="@+id/repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50"
+            android:gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            android:textColor="#364b44"
+            android:layout_gravity="bottom"
+            android:textSize="@dimen/_16ssp" />
+
+
+    </GridLayout>
+
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:onClick="play_or_pause"
+        android:contextClickable="true"
+        android:src="@drawable/play_icon"
+        android:background="#0000"
+        app:tint="#364b44" />
+
+</LinearLayout>

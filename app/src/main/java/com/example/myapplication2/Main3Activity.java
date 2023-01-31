@@ -3,16 +3,35 @@ package com.example.myapplication2;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.SurfaceHolder;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -21,6 +40,8 @@ import android.widget.VideoView;
 
 import com.google.android.material.internal.ViewUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.SwitchCompat;
@@ -30,8 +51,6 @@ public class Main3Activity extends AppCompatActivity {
     VideoView videoView;
     FrameLayout videoLayout;
     MediaController mediaController;
-    SurfaceHolder surfaceHolder;
-    MediaPlayer mediaPlayer;
     SeekBar seekBar;
     TextView repeat_textView;
     TextView sura_name;
@@ -47,9 +66,8 @@ public class Main3Activity extends AppCompatActivity {
     CardView alkader_card;
     CardView alalak_card;
     CardView acharh_card;
-
-
-    ImageButton play_button;
+    LinearLayout card_layout;
+    HorizontalScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +80,8 @@ public class Main3Activity extends AppCompatActivity {
         sura_name = findViewById(R.id.sura_name);
         aya_number = findViewById(R.id.aya_number);
         switch_only_aya = findViewById(R.id.chip4);
+        card_layout = findViewById(R.id.card_layout);
+        scrollView = findViewById(R.id.scrollView1);
         fatiha_card = findViewById(R.id.fatiha_card);
         annas_card = findViewById(R.id.annas_card);
         alfalk_card = findViewById(R.id.alfalak);
@@ -72,12 +92,10 @@ public class Main3Activity extends AppCompatActivity {
         alkader_card = findViewById(R.id.alkader);
         alalak_card = findViewById(R.id.alalak);
         acharh_card = findViewById(R.id.acharh);
-        play_button = findViewById(R.id.play_button);
-        mediaController = new MediaController(this);
+
         videoView.setOnCompletionListener(mediaPlayer1 -> {
             seekBar.setProgress(seekBar.getProgress() - 1);
             repeat(mediaPlayer1);
-
         });
         switch_only_aya.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
@@ -90,12 +108,9 @@ public class Main3Activity extends AppCompatActivity {
             }
         });
         aya_number.setOnEditorActionListener((textView, i, keyEvent) -> {
-            videoView.pause();
-            play_button.setImageResource(R.drawable.play_icon);
-            play_button.setTag("play");
-            play_button.performClick();
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(aya_number.getWindowToken(),0);
+            inputMethodManager.hideSoftInputFromWindow(aya_number.getWindowToken(), 0);
+            play(textView);
             return true;
         });
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -116,21 +131,51 @@ public class Main3Activity extends AppCompatActivity {
         });
         videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.fatiha);
         initializeCard();
-        play_button.setOnClickListener(this::play_or_pause);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        resizeCards(fatiha_card, height / 7);
+        resizeCards(annas_card, height / 7);
+        resizeCards(alfalk_card, height / 7);
+        resizeCards(alikhlas_card, height / 7);
+        resizeCards(alfil_card, height / 7);
+        resizeCards(alhomaza_card, height / 7);
+        resizeCards(albaiina_card, height / 7);
+        resizeCards(alkader_card, height / 7);
+        resizeCards(alalak_card, height / 7);
+        resizeCards(acharh_card, height / 7);
+        scrollView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
-        mediaController.setAnchorView(videoLayout);
-        mediaController.setVisibility(View.INVISIBLE);
-        videoView.setMediaController(mediaController);
+//        mediaController.setAnchorView(videoView);
+
+        videoView.setOnPreparedListener(mediaPlayer -> {
+            mediaPlayer.setOnVideoSizeChangedListener((mediaPlayer1, width, heightt) -> {
+                mediaController = new MediaController(Main3Activity.this);
+                videoView.setMediaController(mediaController);
+                mediaController.setAnchorView(videoView);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    mediaController.setTransitionAlpha(0.5f);
+                } else {
+                    mediaController.setAlpha(0.5f);
+                }
+            });
+        });
+    }
+
+    private void resizeCards(CardView card, int width) {
+        card.setLayoutParams(new LinearLayout.LayoutParams(width, width));
+        card.requestLayout();
+        ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) card.getLayoutParams();
+        layoutParams.setMargins(10, 0, 10, 0);
+        card.requestLayout();
     }
 
     private void play_or_pause(View view) {
-//        if (play_button.getTag().toString().equals("play")) {
         if (!videoView.isPlaying()) {
             play(view);
         } else {
             videoView.pause();
-            play_button.setImageResource(R.drawable.play_icon);
-            play_button.setTag("play");
         }
     }
 
@@ -530,23 +575,15 @@ public class Main3Activity extends AppCompatActivity {
                 }
             }
         }
-
         videoView.start();
-        play_button.setImageResource(R.drawable.pause_icon);
-        play_button.setTag("pause");
-
     }
+
 
     private void repeat(MediaPlayer mediaPlayer) {
         int progress = seekBar.getProgress();
         if (progress > 0) {
-//            seekBar.setProgress(--progress);
             mediaPlayer.start();
-        } else {
-            play_button.setImageResource(R.drawable.play_icon);
-            play_button.setTag("play");
         }
-
     }
 
     private void initializeCard() {
@@ -556,7 +593,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.fatiha);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
         annas_card.setOnClickListener(view -> {
@@ -565,7 +602,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.annas);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
         alfalk_card.setOnClickListener(view -> {
@@ -574,7 +611,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alfalak);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
         alikhlas_card.setOnClickListener(view -> {
@@ -583,7 +620,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alikhlas);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
         alfil_card.setOnClickListener(view -> {
@@ -592,7 +629,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alfil);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
         alhomaza_card.setOnClickListener(view -> {
@@ -601,7 +638,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alhomaza);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
         albaiina_card.setOnClickListener(view -> {
@@ -610,7 +647,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.albaiina);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
         alkader_card.setOnClickListener(view -> {
@@ -619,7 +656,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alkader);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
         alalak_card.setOnClickListener(view -> {
@@ -628,7 +665,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.alalak);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
         acharh_card.setOnClickListener(view -> {
@@ -637,7 +674,7 @@ public class Main3Activity extends AppCompatActivity {
             videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.acharh);
             if (seekBar.getProgress() > 0) {
                 seekBar.setProgress(seekBar.getProgress() - 1);
-//                videoView.start();
+                videoView.start();
             }
         });
     }

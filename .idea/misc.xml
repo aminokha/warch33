@@ -9,23 +9,35 @@
         <entry key="app/src/main/res/drawable/border1.xml" value="0.159" />
         <entry key="app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.266" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.266" />
+        <entry key="app/src/main/res/drawable/line.xml" value="0.202" />
         <entry key="app/src/main/res/drawable/rectangle.xml" value="0.266" />
-        <entry key="app/src/main/res/drawable/rounded_backround.xml" value="0.358" />
-        <entry key="app/src/main/res/layout-hdpi/activity_main3.xml" value="0.53515625" />
+        <entry key="app/src/main/res/drawable/rounded_backround.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/shape.xml" value="0.201" />
+        <entry key="app/src/main/res/layout-1440x720/activity_main3.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout-h1440dp/activity_main3.xml" value="0.145703125" />
+        <entry key="app/src/main/res/layout-h720dp/activity_main3.xml" value="0.22" />
+        <entry key="app/src/main/res/layout-hdpi/activity_main3.xml" value="0.33" />
+        <entry key="app/src/main/res/layout-land/activity_main3.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-ldpi/activity_main3.xml" value="0.9325" />
         <entry key="app/src/main/res/layout-mdpi/activity_main3.xml" value="0.2789473684210526" />
-        <entry key="app/src/main/res/layout-small/activity_main3.xml" value="1.5088105726872247" />
-        <entry key="app/src/main/res/layout-xxhdpi/activity_main3.xml" value="0.30043859649122806" />
-        <entry key="app/src/main/res/layout-xxxhdpi/activity_main3.xml" value="0.22532894736842105" />
+        <entry key="app/src/main/res/layout-notlong/activity_main3.xml" value="0.181862506094588" />
+        <entry key="app/src/main/res/layout-small/activity_main2.xml" value="1.104026845637584" />
+        <entry key="app/src/main/res/layout-small/activity_main3.xml" value="1.104026845637584" />
+        <entry key="app/src/main/res/layout-xhdpi/activity_main3.xml" value="0.46625" />
+        <entry key="app/src/main/res/layout-xxhdpi/activity_main3.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-xxxhdpi/activity_main3.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/aa.xml" value="0.1671171171171171" />
         <entry key="app/src/main/res/layout/aaa.xml" value="0.26328125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.255859375" />
-        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_main3.xml" value="1.5" />
+        <entry key="app/src/main/res/layout/activity_main.xsd" value="0.16801801801801802" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main3.xml" value="0.2" />
         <entry key="app/src/main/res/layout/layout_radius.xml" value="0.267578125" />
         <entry key="app/src/main/res/layout/panel.xml" value="0.266796875" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
