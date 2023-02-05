@@ -501,11 +501,6 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
-    public void play_or_pause(View view) {
-
-
-    }
-
     private void pause() {
         videoView.pause();
 

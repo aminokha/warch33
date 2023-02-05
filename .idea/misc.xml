@@ -36,6 +36,8 @@
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main3.xml" value="0.2528823981552652" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_horof.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_souar.xml" value="0.1545045045045045" />
         <entry key="app/src/main/res/layout/layout_radius.xml" value="0.267578125" />
         <entry key="app/src/main/res/layout/panel.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/test.xml" value="0.16801801801801802" />
