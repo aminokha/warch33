@@ -9,4 +9,8 @@
     <color name="NoTransparent">#FF99CC00</color>
     <color name="AlmostTransparent">#4499CC00</color>
     <color name="FullTransparent">#0099CC00</color>
+    <color name="background">#424949</color>
+    <color name="color1">#5a6464</color>
+    <color name="color2">#8E6F5A</color>
+    <color name="color3">#99162A32</color>
 </resources>
