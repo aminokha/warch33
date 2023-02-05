@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.example.myapplication2">
+    package="com.example.myapplication2"
+    xmlns:dist="http://schemas.android.com/apk/distribution">
 
+    <dist:module dist:instant="true" />
     <application
         android:allowBackup="true"
-        android:configChanges="orientation|keyboardHidden"
+        android:largeHeap="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:screenOrientation="portrait"
         android:supportsRtl="true"
+        android:screenOrientation="portrait"
+        android:configChanges="orientation|keyboardHidden"
         android:theme="@style/Theme.MyApplication2">
         <activity
-            android:name=".Test"
-            android:exported="false" />
-        <activity
-            android:name=".Splash"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,22 +26,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:exported="false"
-            android:screenOrientation="portrait"></activity>
-        <activity
             android:name=".Main2Activity"
             android:configChanges="orientation|keyboardHidden"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Main3Activity"
-            android:configChanges="orientation|keyboardHidden"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
     </application>
-
-    <dist:module dist:instant="true" />
 
 </manifest>

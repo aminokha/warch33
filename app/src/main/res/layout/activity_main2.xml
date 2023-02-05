@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="#98b0a8"
     android:keepScreenOn="true"
     tools:context=".Main2Activity">
 
@@ -20,14 +20,12 @@
         android:layout_marginTop="@dimen/_10ssp"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:background="@drawable/rectangle"
-        android:backgroundTint="@color/color2"
         android:padding="@dimen/_3sdp">
 
         <VideoView
             android:id="@+id/videoView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"/>
+            android:layout_height="wrap_content" />
     </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,7 +45,6 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:contentDescription="previous letre"
             android:onClick="previousHarf"
-            android:backgroundTint="@color/color2"
             app:srcCompat="@android:drawable/ic_media_play" />
         <TextView
             android:id="@+id/harf"
@@ -55,7 +52,7 @@
             android:layout_height="@dimen/_70sdp"
             android:text="ء"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/_50ssp"
             android:textStyle="bold" />
         <ImageButton
@@ -65,7 +62,6 @@
             android:contentDescription="next letre"
             android:onClick="nextHarf"
             android:rotation="180"
-            android:backgroundTint="@color/color2"
             app:srcCompat="@android:drawable/ic_media_play" />
     </LinearLayout>
 <androidx.cardview.widget.CardView
@@ -84,10 +80,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/color1"
+            android:background="#364b44"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_weight="2.5"
+            android:layout_weight="2"
             android:paddingVertical="@dimen/_10sdp">
             <RadioGroup
                 android:id="@+id/radio_group1"
@@ -103,7 +99,7 @@
                     android:layoutDirection="rtl"
                     android:textColor="@color/white"
                     android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:buttonTint="@color/white"
+                    android:buttonTint="#98b0a8"
                     android:textSize="@dimen/_12ssp"/>
                 <RadioButton
                     android:id="@+id/choice1"
@@ -114,7 +110,7 @@
                     android:textColor="@color/white"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layoutDirection="rtl"
-                    android:buttonTint="@color/white"
+                    android:buttonTint="#98b0a8"
                     android:textSize="@dimen/_12ssp"/>
             </RadioGroup>
             <LinearLayout
@@ -140,7 +136,7 @@
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_weight="1"
                         android:checked="true"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="#98b0a8"
                         android:layoutDirection="rtl"
                         android:text="فتحة"
                         android:textColor="@color/white"
@@ -155,7 +151,7 @@
                         android:layout_marginEnd="@dimen/_8sdp"
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_weight="1"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="#98b0a8"
                         android:layoutDirection="rtl"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12ssp" />
@@ -169,7 +165,7 @@
                         android:layout_marginEnd="@dimen/_8sdp"
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_weight="1"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="#98b0a8"
                         android:layoutDirection="rtl"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12ssp" />
@@ -182,7 +178,7 @@
                         android:layout_marginEnd="@dimen/_8sdp"
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_weight="1"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="#98b0a8"
                         android:layoutDirection="rtl"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12ssp" />
@@ -207,7 +203,7 @@
                     android:textAlignment="center"
                     android:text="مرات التكرار"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <SeekBar
                     android:id="@+id/seekBar"
@@ -217,11 +213,11 @@
                     android:layout_column="1"
                     android:layout_gravity="center|fill"
                     android:layout_row="0"
-                    android:max="10000"
+                    android:max="1000"
                     android:min="0"
                     android:progress="50"
                     android:progressBackgroundTint="@color/white"
-                    android:progressTint="@color/color2"
+                    android:progressTint="#98b0a8"
                     android:thumb="@color/design_default_color_error" />
 
                 <TextView
@@ -243,21 +239,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:background="@color/color2"
             android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:textColor="@color/white"
-            android:text="كرر بتأن وتركيز لتستفيد من التمرين أكثر"
-            android:textSize="@dimen/_15ssp"
-            android:textStyle="bold"/>
+
         </LinearLayout>
 
     </LinearLayout>
