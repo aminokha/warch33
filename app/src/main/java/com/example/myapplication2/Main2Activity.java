@@ -118,7 +118,7 @@ public class Main2Activity extends AppCompatActivity {
             checkWhatSound();
             videoView.start();
 
-            seekBar.setEnabled(false);
+//            seekBar.setEnabled(false);
 //            radioButtonFatha.setEnabled(false);
 //            radioButtonThama.setEnabled(false);
 //            radioButtonKasra.setEnabled(false);

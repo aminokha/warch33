@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#98b0a8"
+    android:background="@drawable/background"
     android:gravity="top"
     android:keepScreenOn="true"
     android:orientation="vertical"
@@ -20,6 +20,7 @@
         android:layout_marginTop="@dimen/_10ssp"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:background="@drawable/rectangle"
+        android:backgroundTint="@color/color2"
         android:padding="@dimen/_3sdp">
 
         <VideoView
@@ -41,13 +42,13 @@
         android:layout_gravity="center"
         android:text="ســورة الفـاتـحـة"
         android:textColor="@color/white"
-        android:background="#364B44"
         android:textSize="@dimen/_16ssp" />
 
     <ImageView
     android:layout_width="match_parent"
     android:layout_height="@dimen/_10sdp"
     android:layout_below="@+id/sura_name"
+    android:backgroundTint="@color/color2"
     android:background="@drawable/line" />
 
     <HorizontalScrollView
@@ -74,7 +75,6 @@
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/_5sdp"
-                app:cardBackgroundColor="#73A78C"
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="5dp">
 
@@ -96,10 +96,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:text="سورة الفاتحة"
-                        android:textAlignment="center"
                         android:gravity="center"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12ssp" />
                 </LinearLayout>
@@ -130,7 +130,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:text="سورة الناس"
                         android:gravity="center"
                         android:textAlignment="center"
@@ -166,7 +166,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:gravity="center"
                         android:text="سورة الفلق"
                         android:textAlignment="center"
@@ -202,7 +202,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:layout_marginBottom="0dp"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:gravity="center"
                         android:text="سورة الاخلاص"
                         android:textAlignment="center"
@@ -237,7 +237,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:gravity="center"
                         android:text="سورة الفيل"
                         android:textAlignment="center"
@@ -272,7 +272,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:gravity="center"
                         android:text="سورة الهمزة"
                         android:textAlignment="center"
@@ -307,7 +307,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:gravity="center"
                         android:text="سورة البينة"
                         android:textAlignment="center"
@@ -342,7 +342,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:gravity="center"
                         android:text="سورة القدر"
                         android:textAlignment="center"
@@ -377,7 +377,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:gravity="center"
                         android:text="سورة العلق"
                         android:textAlignment="center"
@@ -412,7 +412,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="#364b44"
+                        android:background="@color/color1"
                         android:gravity="center"
                         android:text="سورة الشرح"
                         android:textAlignment="center"
@@ -429,6 +429,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_10sdp"
         android:layout_below="@+id/card_layout"
+        android:backgroundTint="@color/color2"
         android:background="@drawable/line" />
 
 
@@ -438,7 +439,6 @@
         android:layout_below="@+id/barrier"
         android:layout_weight="3"
         android:layout_margin="@dimen/_15sdp"
-        app:cardBackgroundColor="#98b0a8"
         app:cardCornerRadius="@dimen/_30sdp"
         app:cardElevation="5dp">
 <LinearLayout
@@ -448,8 +448,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#364b44"
+        android:background="@color/color1"
         android:layout_weight="0.6"
+        android:gravity="center"
         android:paddingVertical="@dimen/_10sdp">
 
         <EditText
@@ -488,7 +489,7 @@
             android:paddingStart="0dp"
             android:progress="30"
             android:progressBackgroundTint="@color/white"
-            android:progressTint="#98b0a8"
+            android:progressTint="@color/color2"
             android:thumb="@color/design_default_color_error" />
         <TextView
             android:id="@+id/textView3"
@@ -537,14 +538,13 @@
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layoutDirection="rtl"
-            android:paddingVertical="@dimen/_10sdp"
-            android:theme="@style/Color1SwitchStyle"
-            app:thumbTint="#98b0a8" />
+            android:paddingVertical="@dimen/_10sdp"/>
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/color2"
         android:orientation="vertical">
         <TextView
             android:id="@+id/textView2"
@@ -561,6 +561,7 @@
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_gravity="bottom"
+            android:textColor="@color/white"
             android:text="كرر بتأن وتركيز لتستفيد من التمرين أكثر"
             android:textSize="@dimen/_15ssp"
             android:textStyle="bold" />
