@@ -16,7 +16,7 @@ public class Splash extends AppCompatActivity {
         // This method is used so that your splash activity can cover the entire screen.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.splash_layout);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

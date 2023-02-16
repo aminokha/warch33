@@ -6,16 +6,13 @@
     <application
         android:allowBackup="true"
         android:configChanges="orientation|keyboardHidden"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_logo_homat"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_logo_homat"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication2">
-        <activity
-            android:name=".Test"
-            android:exported="false" />
         <activity
             android:name=".Splash"
             android:exported="true">
@@ -31,12 +28,12 @@
             android:exported="false"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".Main2Activity"
+            android:name=".HorofActivity"
             android:configChanges="orientation|keyboardHidden"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Main3Activity"
+            android:name=".SouarActivity"
             android:configChanges="orientation|keyboardHidden"
             android:exported="false"
             android:screenOrientation="portrait" />
