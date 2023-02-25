@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#313335"
+    android:orientation="vertical"
+    tools:context=".Login">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textV_key"
+        android:layout_centerHorizontal="true"
+        android:onClick="activate"
+        android:text="تفعيل"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:backgroundTint="#063961"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/key" />
+
+    <EditText
+        android:id="@+id/key"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignBaseline="@id/textV_key"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/id"
+        android:layout_marginVertical="@dimen/_40sdp"
+        android:enabled="true"
+        android:gravity="center"
+        android:inputType="numberSigned"
+        android:background="@color/white"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/textV_key"
+        app:layout_constraintTop_toBottomOf="@+id/id" />
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignBaseline="@id/textV_id"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginVertical="@dimen/_60sdp"
+        android:layout_toRightOf="@+id/textV_key"
+        android:background="@color/white"
+        android:gravity="center"
+        android:inputType="none"
+        android:selectAllOnFocus="true"
+        android:textIsSelectable="true"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toRightOf="@id/textV_id"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/id"
+        android:layout_alignParentTop="true"
+        android:layout_marginVertical="@dimen/_120sdp"
+        android:gravity="center"
+        android:text="تفعيل التطبيق"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="@id/id"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.216" />
+
+    <TextView
+        android:id="@+id/textV_key"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textV_id"
+        android:gravity="center"
+        android:inputType="none"
+        android:text="key"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/key"
+        app:layout_constraintRight_toLeftOf="@id/key"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textV_id"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:enabled="true"
+        android:gravity="center"
+        android:inputType="none"
+        android:text="id   "
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/id"
+        app:layout_constraintRight_toLeftOf="@+id/id"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
