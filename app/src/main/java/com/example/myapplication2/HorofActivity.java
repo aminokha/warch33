@@ -3,6 +3,9 @@ package com.example.myapplication2;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -35,9 +38,9 @@ public class HorofActivity extends AppCompatActivity {
     RadioButton choice1;
     RadioButton choice2;
     StringCharacterIterator stringCharacterIterator;
+    TextView message;
     private MediaController mediaController;
     private RadioGroup radioGroup1;
-    TextView message;
     private int messageOrdre = 1;
 
 
@@ -66,19 +69,17 @@ public class HorofActivity extends AppCompatActivity {
         choice2 = findViewById(R.id.choice2);
         seekBar = findViewById(R.id.seekBar);
         mediaPlayer = MediaPlayer.create(this.getApplicationContext(), R.raw.hamza_fatha);
-        mediaController = new MediaController(this);
+        mediaController = new MediaController(HorofActivity.this);
 
         Timer myTimer = new Timer();
         TimerTask myTask = new TimerTask() {
             @Override
             public void run() {
-                // your code
-                changeMessage();
+                HorofActivity.this.runOnUiThread(() ->changeMessage());
             }
         };
 
-        myTimer.scheduleAtFixedRate(myTask, 0l, 2 * (60 * 1000));
-
+        myTimer.scheduleAtFixedRate(myTask, 0l, 1 * (60 * 1000));
         videoView.setOnCompletionListener(mediaPlayer1 -> {
             play(mediaPlayer1);
         });
@@ -95,34 +96,29 @@ public class HorofActivity extends AppCompatActivity {
                 }
             });
         });
-        mediaController.setVisibility(View.VISIBLE);
 
         play(mediaPlayer);
-        mediaPlayer.pause();
 
-        seekBar.setOnSeekBarChangeListener(new
 
-                                                   OnSeekBarChangeListener() {
-                                                       @Override
-                                                       public void onStopTrackingTouch(SeekBar seekBar) {
+        seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
-                                                       }
+            }
 
-                                                       @Override
-                                                       public void onStartTrackingTouch(SeekBar seekBar) {
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
-                                                       }
+            }
 
-                                                       @Override
-                                                       public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                                                           repeat.setText(String.valueOf(progress));
-                                                       }
-                                                   });
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                repeat.setText(String.valueOf(progress));
+            }
+        });
 
-        mediaController.setAnchorView(videoLayout);
-        mediaController.setVisibility(View.INVISIBLE);
         videoView.setMediaController(mediaController);
-
+        mediaController.setAnchorView(videoLayout);
     }
 
     private void changeMessage() {
@@ -190,8 +186,7 @@ public class HorofActivity extends AppCompatActivity {
                     radioButtonSokoun.setEnabled(false);
                     if (radioButtonSokoun.isChecked()) {
                         radioButtonKasra.setChecked(true);
-                    }
-                    if (radioButtonFatha.isChecked()) {
+                    } else if (radioButtonFatha.isChecked()) {
                         videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.hamza_mos_fatha);
                     } else if (radioButtonThama.isChecked()) {
                         videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.hamza_mos_dhama);
@@ -550,9 +545,7 @@ public class HorofActivity extends AppCompatActivity {
                 }
                 break;
             }
-
         }
-
     }
 
     private void pause() {

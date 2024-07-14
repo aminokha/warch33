@@ -88,6 +88,4 @@
             </androidx.cardview.widget.CardView>
         </TableRow>
     </TableLayout>
-
-
 </LinearLayout>

@@ -107,11 +107,10 @@ public class SouarActivity extends AppCompatActivity {
         TimerTask myTask = new TimerTask() {
             @Override
             public void run() {
-                // your code
-                changeMessage();
+                SouarActivity.this.runOnUiThread(() ->changeMessage());
             }
         };
-        myTimer.scheduleAtFixedRate(myTask, 0l, 2 * (60 * 1000));
+        myTimer.scheduleAtFixedRate(myTask, 0l, 1 * (60 * 1000));
 
         videoView.setOnCompletionListener(mediaPlayer1 -> {
             seekBar.setProgress(seekBar.getProgress() - 1);
