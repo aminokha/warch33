@@ -1,91 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical"
     android:keepScreenOn="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_centerHorizontal="true"
-        android:text="مقرأة حماة ورش الجزائرية"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:layout_weight="2"
-        android:shadowColor="@color/black"
-        android:shadowDx="5"
-        android:shadowDy="5"
-        android:shadowRadius="3"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_25ssp"
-        android:textStyle="bold" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/horofCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:onClick="horof"
+        app:cardBackgroundColor="@color/color2"
+        app:cardCornerRadius="@dimen/_15sdp"
+        app:cardElevation="@dimen/_5sdp"
+        app:layout_constraintBottom_toTopOf="@+id/souarCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
-        android:layout_below="@+id/textView"
-        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:text="حـروف"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18ssp" />
 
-        <TableRow
-            android:gravity="center"
-            android:paddingTop="@dimen/_10sdp"
-            android:paddingBottom="@dimen/_20sdp">
+    </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_marginBottom="@dimen/_15sdp"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:onClick="horof"
-                app:cardBackgroundColor="@color/color2"
-                app:cardCornerRadius="@dimen/_15sdp"
-                app:cardElevation="@dimen/_5sdp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/souarCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:onClick="goToSouar"
+        app:cardBackgroundColor="@color/color2"
+        app:cardCornerRadius="@dimen/_15sdp"
+        app:cardElevation="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="حروف"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_18ssp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:text="سـور وآيـات"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18ssp" />
 
-            </androidx.cardview.widget.CardView>
-        </TableRow>
+    </androidx.cardview.widget.CardView>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp"
-            android:gravity="center"
-            android:paddingBottom="@dimen/_5sdp">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="319dp"
+        android:layout_height="575dp"
+        app:layout_constraintBottom_toTopOf="@+id/horofCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_homat3" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:onClick="goToSouar"
-                app:cardBackgroundColor="@color/color2"
-                app:cardCornerRadius="@dimen/_15sdp"
-                app:cardElevation="@dimen/_5sdp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="سور وآيات"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_18ssp" />
-
-            </androidx.cardview.widget.CardView>
-        </TableRow>
-    </TableLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,12 @@
 package com.example.myapplication2;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -16,7 +17,7 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.widget.VideoView;
+import android.widget.Toast;
 
 import java.text.StringCharacterIterator;
 import java.util.Timer;
@@ -25,7 +26,7 @@ import java.util.TimerTask;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HorofActivity extends AppCompatActivity {
-    VideoView videoView;
+    PlayStateVideoView videoView;
     FrameLayout videoLayout;
     SeekBar seekBar;
     TextView repeat;
@@ -42,6 +43,7 @@ public class HorofActivity extends AppCompatActivity {
     private MediaController mediaController;
     private RadioGroup radioGroup1;
     private int messageOrdre = 1;
+    private SharedPreferences sharedPreferences;
 
 
     @Override
@@ -50,14 +52,15 @@ public class HorofActivity extends AppCompatActivity {
         mediaPlayer.release();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.horof_layout);
         stringCharacterIterator = new StringCharacterIterator("ءبتثجحخدذرزسشصضطظعغفقكلمنهوي");
         message = findViewById(R.id.message);
-        videoView = findViewById(R.id.videoView);
-        videoLayout = findViewById(R.id.videoLayout);
+        videoView = findViewById(R.id.HorofVideoView);
+        videoLayout = findViewById(R.id.videoLayout1);
         repeat = findViewById(R.id.repeat);
         harf = findViewById(R.id.harf);
         radioGroup1 = findViewById(R.id.radio_group1);
@@ -68,20 +71,25 @@ public class HorofActivity extends AppCompatActivity {
         choice1 = findViewById(R.id.choice1);
         choice2 = findViewById(R.id.choice2);
         seekBar = findViewById(R.id.seekBar);
+        videoView.setSeekBar(seekBar);
         mediaPlayer = MediaPlayer.create(this.getApplicationContext(), R.raw.hamza_fatha);
         mediaController = new MediaController(HorofActivity.this);
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
+        setStat();
 
         Timer myTimer = new Timer();
         TimerTask myTask = new TimerTask() {
             @Override
             public void run() {
-                HorofActivity.this.runOnUiThread(() ->changeMessage());
+                HorofActivity.this.runOnUiThread(() -> changeMessage());
             }
         };
 
-        myTimer.scheduleAtFixedRate(myTask, 0l, 1 * (60 * 1000));
+        myTimer.schedule(myTask, 0l, 1 * (60 * 1000));
         videoView.setOnCompletionListener(mediaPlayer1 -> {
             play(mediaPlayer1);
+            //code to control time between repetition
         });
 
         videoView.setOnPreparedListener(mediaPlayer -> {
@@ -98,7 +106,6 @@ public class HorofActivity extends AppCompatActivity {
         });
 
         play(mediaPlayer);
-
 
         seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
@@ -119,6 +126,93 @@ public class HorofActivity extends AppCompatActivity {
 
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoLayout);
+        mediaPlayer.setOnCompletionListener(view -> {
+            if (!mediaPlayer.isPlaying()) {
+                seekBar.setEnabled(true);
+                Toast.makeText(this, "تم تشغيل الفيديو", Toast.LENGTH_SHORT).show();
+            } else {
+                seekBar.setEnabled(true);
+                Toast.makeText(this, "تم تشغيل الفيديو", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        saveStat();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setStat();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        saveStat();
+    }
+
+    private void saveStat() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("harf", harf.getText().toString());
+        if (choice1.isChecked()) {
+            editor.putInt("choice_1_or_2", 1);
+        } else {
+            editor.putInt("choice_1_or_2", 2);
+        }
+        if (radioButtonFatha.isChecked()) {
+            editor.putInt("haraka_type", 1);
+        } else if (radioButtonThama.isChecked()) {
+            editor.putInt("haraka_type", 2);
+        } else if (radioButtonKasra.isChecked()) {
+            editor.putInt("haraka_type", 3);
+        } else {
+            editor.putInt("haraka_type", 4);
+        }
+        editor.putInt("seekbar_value", seekBar.getProgress());
+        editor.apply();
+    }
+
+    private void setStat() {
+        String harf_local = sharedPreferences.getString("harf", "ء");
+        int choice_1_or_2 = sharedPreferences.getInt("choice_1_or_2", 1);
+        int haraka_type = sharedPreferences.getInt("haraka_type", 1);
+        int seekbar_value = sharedPreferences.getInt("seekbar_value", 50);
+
+        while (!harf.getText().equals(harf_local)) {
+            nextHarf(harf);
+        }
+
+        if (harf_local.equals("ء")) {
+            if ( choice_1_or_2 == 1) {
+                choice1.setChecked(true);
+            } else {
+                choice2.setChecked(true);
+            }
+            radioGroup1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        } else if (harf_local.equals("ر") || harf_local.equals("ل")) {
+            if ( choice_1_or_2 == 1) {
+                choice1.setChecked(true);
+            } else {
+                choice2.setChecked(true);
+            }
+            radioGroup1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        } else {
+            radioGroup1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 0));
+        }
+        if (haraka_type == 1) {
+            radioButtonFatha.setChecked(true);
+        } else if (haraka_type == 2) {
+            radioButtonThama.setChecked(true);
+        } else if (haraka_type == 3) {
+            radioButtonKasra.setChecked(true);
+        } else {
+            radioButtonSokoun.setChecked(true);
+        }
+        seekBar.setProgress(seekbar_value);
     }
 
     private void changeMessage() {
@@ -167,12 +261,7 @@ public class HorofActivity extends AppCompatActivity {
             seekBar.setProgress(--progress);
             checkWhatSound();
             videoView.start();
-
-//            seekBar.setEnabled(false);
-//            radioButtonFatha.setEnabled(false);
-//            radioButtonThama.setEnabled(false);
-//            radioButtonKasra.setEnabled(false);
-//            radioButtonSokoun.setEnabled(false);
+            seekBar.setEnabled(false);
         } else {
             pause();
         }
@@ -475,13 +564,23 @@ public class HorofActivity extends AppCompatActivity {
             }
             case "ل": {
                 if (radioButtonFatha.isChecked()) {
-                    videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.la_fatha);
-                } else if (radioButtonThama.isChecked()) {
+                    if (choice1.isChecked()) { // لام مفتوحة مفخمة
+                        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.la_fatha2);
+                    } else { // لام مفتوحة مرققة
+                        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.la_fatha);
+                    }
+                } else if (radioButtonThama.isChecked()) {  // لام مضمومة
+                    choice2.setChecked(true);
                     videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.la_dhama);
-                } else if (radioButtonKasra.isChecked()) {
+                } else if (radioButtonKasra.isChecked()) { // لام مكسورة
+                    choice2.setChecked(true);
                     videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.la_kasra);
                 } else {
-                    videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.la_sokoun);
+                    if (choice1.isChecked()) { //  لام ساكنة مفخمة
+                        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.la_sokoun2);
+                    } else { //  لام ساكنة مرققة
+                        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.la_sokoun);
+                    }
                 }
                 break;
             }
@@ -550,7 +649,6 @@ public class HorofActivity extends AppCompatActivity {
 
     private void pause() {
         videoView.pause();
-
         seekBar.setEnabled(true);
         radioButtonFatha.setEnabled(true);
         radioButtonThama.setEnabled(true);

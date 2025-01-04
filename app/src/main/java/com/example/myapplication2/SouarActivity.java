@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -72,7 +71,7 @@ public class SouarActivity extends AppCompatActivity {
         setContentView(R.layout.souar_layout);
         message = findViewById(R.id.message);
         videoView = findViewById(R.id.videoView);
-        videoLayout = findViewById(R.id.videoLayout);
+        videoLayout = findViewById(R.id.videoLayout2);
         seekBar = findViewById(R.id.progress_bar);
         repeat_textView = findViewById(R.id.repeat);
         sura_name = findViewById(R.id.sura_name);
