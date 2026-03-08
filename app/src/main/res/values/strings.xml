@@ -12,4 +12,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_horof">حروف</string>
+    <string name="nav_souar">سور</string>
+    <string name="nav_stats">إحصائيات</string>
+    <string name="nav_settings">إعدادات</string>
+    <string name="previous_letter" />
+    <string name="next_letter" />
 </resources>

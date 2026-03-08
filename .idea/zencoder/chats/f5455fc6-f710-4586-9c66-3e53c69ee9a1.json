@@ -1,0 +1,65 @@
+{
+    "checksum": "bc690ec482d5ea68bd91aaa2be4467a674faf5049a37dfd662adcce96531d2ab",
+    "data": {
+    "id": "f5455fc6-f710-4586-9c66-3e53c69ee9a1",
+    "createdAt": 1771868780284,
+    "updatedAt": 1771868791747,
+    "title": "حاول فهم المنطق في كلاس horofAvtivity واقتراح ت...",
+    "messages": [
+        {
+            "id": "f756aec8-5c80-4bd1-8ec0-63d7e32e00be",
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "حاول فهم المنطق في كلاس horofAvtivity واقتراح تعديلات منطقية"
+                }
+            ],
+            "context": {
+                "currentFile": {
+                    "fsPath": "C:/warch33/app/src/main/java/com/example/myapplication2/HorofActivity.java"
+                }
+            },
+            "createdAt": 1771868780324,
+            "isInternal": false,
+            "rawContent": {
+                "type": "doc",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "حاول فهم المنطق في كلاس horofAvtivity واقتراح تعديلات منطقية"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "autoAppliedRules": []
+        },
+        {
+            "id": "70a04e4e-58bd-4eb5-8ea2-d05e91435d2f",
+            "role": "assistant",
+            "content": [],
+            "context": {
+                "author": "Code agent",
+                "operationId": "b5546f47-db7b-4a33-a0d0-480636f6650b",
+                "cliSessionId": "4c4752c3-f486-4bb7-9d57-050b05ebb530"
+            },
+            "createdAt": 1771868791747,
+            "isInternal": false
+        }
+    ],
+    "isAgent": true,
+    "isCustomAgent": false,
+    "isUnitTestsAgent": false,
+    "isE2EAgent": false,
+    "isWebDevAgent": false,
+    "isQnaAgent": false,
+    "isRepoInfoAgent": false,
+    "model": "gemini-3-1-pro-preview",
+    "lastUserMessageAt": 1771868780324,
+    "isStreaming": true
+}
+}

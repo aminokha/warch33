@@ -1,24 +1,60 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme.MyApplication2" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme.MyApplication2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/background_main</item>
+        <item name="colorPrimaryVariant">@color/card_background</item>
+        <item name="colorOnPrimary">@color/text_main_light</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#FF9800</item>
-        <item name="colorSecondaryVariant">#FF9800</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/accent_green</item>
+        <item name="colorSecondaryVariant">@color/secondary_variant</item>
+        <item name="colorOnSecondary">@color/background_main</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor"
-            tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/background_main</item>
+        
+        <!-- Backgrounds -->
+        <item name="android:windowBackground">@color/background_main</item>
+        <item name="android:textColor">@color/text_main_light</item>
+        <item name="android:textColorPrimary">@color/text_main_light</item>
+        <item name="android:textColorSecondary">@color/text_dim_light</item>
+
         <!-- Customize your theme here. -->
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
-
+        
+        <!-- Shape Appearance -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.App.LargeComponent</item>
     </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius_small</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius_medium</item>
+    </style>
+
+    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius_large</item>
+    </style>
+
     <style name="Color1SwitchStyle">
-        <item name="colorControlActivated">#BDD3CC</item>
+        <item name="colorControlActivated">@color/secondary</item>
     </style>
 
 </resources>

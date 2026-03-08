@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/surah_card"
+    android:layout_width="@dimen/_85sdp"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/_4sdp"
+    app:cardBackgroundColor="@color/card_background"
+    app:cardCornerRadius="@dimen/_12sdp"
+    app:cardElevation="4dp"
+    app:strokeColor="@color/stroke_color"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/surah_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3.5"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/surah_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:background="@color/color1"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9ssp" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

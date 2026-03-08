@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:text="الإعدادات"
+                android:textColor="@color/text_main_light"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <!-- Horof Goal Settings -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="@dimen/corner_radius_medium"
+                app:cardElevation="4dp"
+                android:outlineSpotShadowColor="@color/white"
+                app:strokeColor="@color/stroke_color"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="هدف الحروف اليومي"
+                        android:layout_gravity="right"
+                        android:textColor="@color/secondary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layoutDirection="rtl" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layoutGoalHorof"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        app:boxStrokeColor="@color/secondary"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editGoalHorof"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:layoutDirection="rtl"
+                            android:gravity="right|center_vertical"
+                            android:maxLines="1"
+                            android:imeOptions="actionNext"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:padding="16dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Souar Goal Settings -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_background"
+                android:outlineSpotShadowColor="@color/white"
+                app:cardCornerRadius="@dimen/corner_radius_medium"
+                app:cardElevation="4dp"
+                app:strokeColor="@color/stroke_color"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="هدف السور اليومي"
+                        android:layout_gravity="right"
+                        android:textColor="@color/secondary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layoutDirection="rtl" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layoutGoalSouar"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        app:boxStrokeColor="@color/secondary"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editGoalSouar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:layoutDirection="rtl"
+                            android:gravity="right|center_vertical"
+                            android:maxLines="1"
+                            android:imeOptions="actionDone"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:padding="16dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Smart Notification Settings -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="@dimen/corner_radius_medium"
+                app:cardElevation="4dp"
+                android:outlineSpotShadowColor="@color/white"
+                app:strokeColor="@color/stroke_color"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="التنبيه الذكي"
+                        android:layout_gravity="right"
+                        android:textColor="@color/secondary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchNotification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="تفعيل التنبيه اليومي"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:layoutDirection="rtl"
+                        app:thumbTint="@color/switch_thumb_selector"
+                        app:trackTint="@color/switch_track_selector"/>
+
+                    <LinearLayout
+                        android:id="@+id/layoutGeneralTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp"
+                        android:layoutDirection="rtl">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="وقت التنبيه:"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvGeneralTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rounded_button"
+                            android:backgroundTint="@color/primary_variant"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="8dp"
+                            android:text="08:00"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvAdvancedOptions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="خيارات متقدمة"
+                        android:textColor="@color/secondary"
+                        android:textSize="12sp"
+                        android:layout_gravity="left"
+                        android:padding="8dp" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutAdvanced"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:layout_marginTop="8dp">
+
+                        <!-- Saturday -->
+                        <include android:id="@+id/day_sat" layout="@layout/item_day_notification" />
+                        <!-- Sunday -->
+                        <include android:id="@+id/day_sun" layout="@layout/item_day_notification" />
+                        <!-- Monday -->
+                        <include android:id="@+id/day_mon" layout="@layout/item_day_notification" />
+                        <!-- Tuesday -->
+                        <include android:id="@+id/day_tue" layout="@layout/item_day_notification" />
+                        <!-- Wednesday -->
+                        <include android:id="@+id/day_wed" layout="@layout/item_day_notification" />
+                        <!-- Thursday -->
+                        <include android:id="@+id/day_thu" layout="@layout/item_day_notification" />
+                        <!-- Friday -->
+                        <include android:id="@+id/day_fri" layout="@layout/item_day_notification" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:insetBottom="0dp"
+                android:insetTop="0dp"
+                android:text="حفظ الإعدادات"
+                android:textColor="@color/text_on_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary"
+                app:cornerRadius="@dimen/corner_radius_medium" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layoutDirection="rtl"
+        android:background="@color/card_background"
+        app:itemIconSize="32dp"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:menu="@menu/bottom_nav_menu" />
+
+</LinearLayout>

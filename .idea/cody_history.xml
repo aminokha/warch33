@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChatHistory">
+    <accountData>
+      <list>
+        <AccountData>
+          <accountId value="VXNlcjo5MDY5NzI=" />
+          <chats>
+            <list>
+              <chat>
+                <internalId value="5ceb2b0f-1ff0-4c05-9536-6a644832e115" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-5-sonnet-20240620" />
+                    <provider value="Anthropic" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="accuracy" />
+                        <option value="recommended" />
+                        <option value="free" />
+                      </list>
+                    </tags>
+                    <title value="Claude 3.5 Sonnet" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how to imprve login design to be more lisible" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="&lt;html&gt;&lt;b&gt;&amp;#9888; Error performing this action&lt;/b&gt;&lt;br&gt;&lt;br&gt;Please retry sending your message. If you tried to run a command, try it again.&lt;br&gt;If the issue persists, please &lt;a href=&quot;https://github.com/sourcegraph/jetbrains/issues/new?template=bug_report.yml&amp;labels=bug&amp;projects=sourcegraph/381&amp;title=bug%3A+Request+to+https%3A%2F%2Fsourcegraph.com%2F.api%2Fcompletions%2Fstream%3Fapi-version%3D1%26client-name%3Djetbrains%26client-version%3D6.0.34+failed+w...&amp;about=Android+Studio+Giraffe+%7C+2022.3.1+Patch+2%0ABuild+%23AI-223.8836.35.2231.10811636%2C+built+on+September+14%2C+2023%0ARuntime+version%3A+17.0.6%2B0-b2043.56-10027231+amd64%0AVM%3A+OpenJDK+64-Bit+Server+VM+by+JetBrains+s.r.o.%0AWindows+11+10.0%0AGC%3A+G1+Young+Generation%2C+G1+Old+Generation%0AMemory%3A+1280M%0ACores%3A+12%0ARegistry%3A%0A++++external.system.auto.import.disabled%3Dtrue%0A++++ide.text.editor.with.preview.show.floating.toolbar%3Dfalse%0A%0ANon-Bundled+Plugins%3A%0A++++com.github.copilot+%281.4.6.4092%29%0A++++com.sourcegraph.jetbrains+%286.0.34%29%0A&amp;logs=Stacktrace%3A%0A%60%60%60text%0ARequest+to+https%3A%2F%2Fsourcegraph.com%2F.api%2Fcompletions%2Fstream%3Fapi-version%3D1%26client-name%3Djetbrains%26client-version%3D6.0.34+failed+with+401+Unauthorized%3A+%7B%22message%22%3A%22status+401%2C+reason+completions+are+not+enabled%22%2C%22type%22%3A%22completions_disabled%22%7D%0A%0A%60%60%60&quot;&gt;create a support ticket&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;sub&gt;Error: Request to https://sourcegraph.com/.api/completions/stream?api-version=1&amp;client-name=jetbrains&amp;client-version=6.0.34 failed with 401 Unauthorized: {&quot;message&quot;:&quot;status 401, reason completions are not enabled&quot;,&quot;type&quot;:&quot;completions_disabled&quot;}&#10;&lt;/sub&gt;&lt;/html&gt;" />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2026-02-21T18:40:00.3157241" />
+              </chat>
+              <chat>
+                <internalId value="14868e0b-5a13-409f-922b-0edfe7c314e1" />
+                <llm>
+                  <llm>
+                    <model value="google/gemini-1.5-pro-latest" />
+                    <provider value="Google" />
+                    <tags>
+                      <list>
+                        <option value="gateway" />
+                        <option value="accuracy" />
+                      </list>
+                    </tags>
+                    <title value="Gemini 1.5 Pro" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how to imprve login design to be more lisible" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="&lt;html&gt;&lt;b&gt;&amp;#9888; Error performing this action&lt;/b&gt;&lt;br&gt;&lt;br&gt;Please retry sending your message. If you tried to run a command, try it again.&lt;br&gt;If the issue persists, please &lt;a href=&quot;https://github.com/sourcegraph/jetbrains/issues/new?template=bug_report.yml&amp;labels=bug&amp;projects=sourcegraph/381&amp;title=bug%3A+Request+to+https%3A%2F%2Fsourcegraph.com%2F.api%2Fcompletions%2Fstream%3Fclient-name%3Djetbrains%26client-version%3D6.0.34+failed+with+401+Unauth...&amp;about=Android+Studio+Giraffe+%7C+2022.3.1+Patch+2%0ABuild+%23AI-223.8836.35.2231.10811636%2C+built+on+September+14%2C+2023%0ARuntime+version%3A+17.0.6%2B0-b2043.56-10027231+amd64%0AVM%3A+OpenJDK+64-Bit+Server+VM+by+JetBrains+s.r.o.%0AWindows+11+10.0%0AGC%3A+G1+Young+Generation%2C+G1+Old+Generation%0AMemory%3A+1280M%0ACores%3A+12%0ARegistry%3A%0A++++external.system.auto.import.disabled%3Dtrue%0A++++ide.text.editor.with.preview.show.floating.toolbar%3Dfalse%0A%0ANon-Bundled+Plugins%3A%0A++++com.github.copilot+%281.4.6.4092%29%0A++++com.sourcegraph.jetbrains+%286.0.34%29%0A&amp;logs=Stacktrace%3A%0A%60%60%60text%0ARequest+to+https%3A%2F%2Fsourcegraph.com%2F.api%2Fcompletions%2Fstream%3Fclient-name%3Djetbrains%26client-version%3D6.0.34+failed+with+401+Unauthorized%3A+%7B%22message%22%3A%22status+401%2C+reason+completions+are+not+enabled%22%2C%22type%22%3A%22completions_disabled%22%7D%0A%0A%60%60%60&quot;&gt;create a support ticket&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;sub&gt;Error: Request to https://sourcegraph.com/.api/completions/stream?client-name=jetbrains&amp;client-version=6.0.34 failed with 401 Unauthorized: {&quot;message&quot;:&quot;status 401, reason completions are not enabled&quot;,&quot;type&quot;:&quot;completions_disabled&quot;}&#10;&lt;/sub&gt;&lt;/html&gt;" />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2026-02-21T18:41:24.7191998" />
+              </chat>
+            </list>
+          </chats>
+          <defaultLlm>
+            <llm>
+              <model value="google/gemini-1.5-pro-latest" />
+              <provider value="Google" />
+              <tags>
+                <list>
+                  <option value="gateway" />
+                  <option value="accuracy" />
+                </list>
+              </tags>
+              <title value="Gemini 1.5 Pro" />
+              <usage>
+                <list>
+                  <option value="chat" />
+                  <option value="edit" />
+                </list>
+              </usage>
+            </llm>
+          </defaultLlm>
+        </AccountData>
+      </list>
+    </accountData>
+  </component>
+</project>
