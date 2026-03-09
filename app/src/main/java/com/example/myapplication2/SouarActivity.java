@@ -224,19 +224,19 @@ public class SouarActivity extends AppCompatActivity {
             if (itemId == R.id.nav_horof) {
                 startActivity(new Intent(getApplicationContext(), HorofActivity.class));
                 finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             } else if (itemId == R.id.nav_souar) {
                 return true;
             } else if (itemId == R.id.nav_stats) {
                 startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
                 finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             } else if (itemId == R.id.nav_settings) {
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             }
             return false;

@@ -34,6 +34,11 @@
     <color name="purple_700">@color/primary_variant</color>
     <color name="teal_200">@color/primary</color>
     
+    <!-- Glassmorphism Styles -->
+    <color name="glass_background">#26FFFFFF</color> <!-- 15% White -->
+    <color name="glass_stroke">#4DFFFFFF</color>     <!-- 30% White -->
+    <color name="glass_dark">#4D000000</color>       <!-- 30% Black -->
+
     <!-- Custom App Specific -->
     <color name="color1">@color/card_background</color> 
     <color name="color2">@color/primary_variant</color> 

@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_main"
-    android:orientation="vertical">
+    android:background="@drawable/glass_bg_gradient"
+    android:orientation="vertical"
+    android:layoutAnimation="@anim/layout_animation_fade_up">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,11 +34,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/card_background"
+                app:cardBackgroundColor="@color/glass_background"
                 app:cardCornerRadius="@dimen/corner_radius_medium"
-                app:cardElevation="4dp"
-                android:outlineSpotShadowColor="@color/white"
-                app:strokeColor="@color/stroke_color"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/glass_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -87,11 +87,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/card_background"
-                android:outlineSpotShadowColor="@color/white"
+                app:cardBackgroundColor="@color/glass_background"
                 app:cardCornerRadius="@dimen/corner_radius_medium"
-                app:cardElevation="4dp"
-                app:strokeColor="@color/stroke_color"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/glass_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -141,11 +140,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="32dp"
-                app:cardBackgroundColor="@color/card_background"
+                app:cardBackgroundColor="@color/glass_background"
                 app:cardCornerRadius="@dimen/corner_radius_medium"
-                app:cardElevation="4dp"
-                android:outlineSpotShadowColor="@color/white"
-                app:strokeColor="@color/stroke_color"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/glass_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -264,7 +262,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layoutDirection="rtl"
-        android:background="@color/card_background"
+        android:background="@color/glass_dark"
+        app:elevation="0dp"
         app:itemIconSize="32dp"
         app:itemIconTint="@color/nav_item_color"
         app:itemTextColor="@color/nav_item_color"

@@ -1,15 +1,18 @@
+# Build artifacts
+build/
+app/build/
 *.iml
 .gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+local.properties
+
+# Android Studio / IDE
+.idea/
 .DS_Store
-/build
 /captures
 .externalNativeBuild
 .cxx
-local.properties
+
+# Other intermediates
+*.flat
+*.ap_
+*.apk

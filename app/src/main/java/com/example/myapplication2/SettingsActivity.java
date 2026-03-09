@@ -72,17 +72,17 @@ public class SettingsActivity extends AppCompatActivity {
             if (itemId == R.id.nav_horof) {
                 startActivity(new Intent(getApplicationContext(), HorofActivity.class));
                 finish();
-                overridePendingTransition(0, 0);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             } else if (itemId == R.id.nav_souar) {
                 startActivity(new Intent(getApplicationContext(), SouarActivity.class));
                 finish();
-                overridePendingTransition(0, 0);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             } else if (itemId == R.id.nav_stats) {
                 startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
                 finish();
-                overridePendingTransition(0, 0);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             } else if (itemId == R.id.nav_settings) {
                 return true;

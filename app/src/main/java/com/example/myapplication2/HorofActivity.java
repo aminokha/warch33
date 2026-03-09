@@ -19,6 +19,11 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+
 import androidx.annotation.OptIn;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.media3.common.MediaItem;
@@ -39,7 +44,6 @@ public class HorofActivity extends AppCompatActivity {
     FrameLayout videoLayout;
     SeekBar seekBar;
     EditText repeat;
-    TextView harf;
     MaterialButton radioButtonFatha;
     MaterialButton radioButtonThama;
     MaterialButton radioButtonKasra;
@@ -57,6 +61,11 @@ public class HorofActivity extends AppCompatActivity {
     private boolean isUpdatingFromSeekBar = false;
     private boolean isUpdatingFromEditText = false;
     private boolean isItemChanged = false;
+
+    private RecyclerView recyclerViewHorof;
+    private HorofAdapter horofAdapter;
+    private List<String> horofList;
+    private int currentHarfIndex = 0;
 
     @Override
     protected void onResume() {
@@ -110,12 +119,13 @@ public class HorofActivity extends AppCompatActivity {
         getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         setContentView(R.layout.horof_layout);
         stringCharacterIterator = new StringCharacterIterator("ءبتثجحخدذرزسشصضطظعغفقكلمنهوي");
+        horofList = new ArrayList<>(Arrays.asList("ء", "ب", "ت", "ث", "ج", "ح", "خ", "د", "ذ", "ر", "ز", "س", "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ك", "ل", "م", "ن", "ه", "و", "ي"));
+        
         message = findViewById(R.id.message);
         playerView = findViewById(R.id.HorofVideoView);
         videoLayout = findViewById(R.id.videoLayout1);
         // replace reference to repeat TextView id to avoid clash with other layouts
         repeat = findViewById(R.id.repeat_horof);
-        harf = findViewById(R.id.harf);
         toggleGroupChoice = findViewById(R.id.toggle_group_choice);
         toggleGroupHarakat = findViewById(R.id.harakat_toggle_group);
         radioButtonFatha = findViewById(R.id.radioButtonFatha);
@@ -125,10 +135,11 @@ public class HorofActivity extends AppCompatActivity {
         choice1 = findViewById(R.id.choice1);
         choice2 = findViewById(R.id.choice2);
         seekBar = findViewById(R.id.seekBar);
+        recyclerViewHorof = findViewById(R.id.recyclerViewHorof);
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        // initializePlayer() call removed as it's handled in onStart
+        setupHorofRecyclerView();
 
         Timer myTimer = new Timer();
         TimerTask myTask = new TimerTask() {
@@ -228,17 +239,17 @@ public class HorofActivity extends AppCompatActivity {
             } else if (itemId == R.id.nav_souar) {
                 startActivity(new Intent(getApplicationContext(), SouarActivity.class));
                 finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             } else if (itemId == R.id.nav_stats) {
                 startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
                 finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             } else if (itemId == R.id.nav_settings) {
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             }
             return false;
@@ -283,7 +294,7 @@ public class HorofActivity extends AppCompatActivity {
 
     private void saveStat() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("harf", harf.getText().toString());
+        editor.putString("harf", horofList.get(currentHarfIndex));
         if (choice1.isChecked()) {
             editor.putInt("choice_1_or_2", 1);
         } else {
@@ -302,15 +313,29 @@ public class HorofActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    private void setupHorofRecyclerView() {
+        horofAdapter = new HorofAdapter(horofList, (selectedHarf, position) -> {
+            currentHarfIndex = position;
+            horofAdapter.setSelectedPosition(position);
+            recyclerViewHorof.smoothScrollToPosition(position);
+            updateRadioGroupVisibility(selectedHarf);
+            checkWhatSound();
+        });
+        recyclerViewHorof.setAdapter(horofAdapter);
+    }
+
     private void setStat() {
         String harf_local = sharedPreferences.getString("harf", "ء");
         int choice_1_or_2 = sharedPreferences.getInt("choice_1_or_2", 1);
         int haraka_type = sharedPreferences.getInt("haraka_type", 1);
         int seekbar_value = sharedPreferences.getInt("seekbar_value", 50);
 
-        while (!harf.getText().equals(harf_local)) {
-            nextHarf(harf);
-        }
+        currentHarfIndex = horofList.indexOf(harf_local);
+        if (currentHarfIndex == -1) currentHarfIndex = 0;
+        
+        String selectedHarf = horofList.get(currentHarfIndex);
+        horofAdapter.setSelectedPosition(currentHarfIndex);
+        recyclerViewHorof.scrollToPosition(currentHarfIndex);
 
         updateRadioGroupVisibility(harf_local);
         if (haraka_type == 1) {
@@ -414,7 +439,7 @@ public class HorofActivity extends AppCompatActivity {
     private void checkWhatSound() {
         if (player == null)
             return;
-        String harfString = harf.getText().toString();
+        String harfString = horofList.get(currentHarfIndex);
         switch (harfString) {
             case "ء": {
                 if (choice2.isChecked()) {
@@ -804,25 +829,11 @@ public class HorofActivity extends AppCompatActivity {
     }
 
     public void nextHarf(View view) {
-        view.startAnimation(android.view.animation.AnimationUtils.loadAnimation(this, R.anim.button_click_anim));
-        if (stringCharacterIterator.getIndex() < stringCharacterIterator.getEndIndex() - 1) {
-            char c = stringCharacterIterator.next();
-            String ch = String.valueOf(c);
-            harf.setText(ch);
-            updateRadioGroupVisibility(ch);
-            checkWhatSound();
-        }
+        // Obsolete, replaced by RecyclerView navigation
     }
 
     public void previousHarf(View view) {
-        view.startAnimation(android.view.animation.AnimationUtils.loadAnimation(this, R.anim.button_click_anim));
-        if (stringCharacterIterator.getIndex() > stringCharacterIterator.getBeginIndex()) {
-            char c = stringCharacterIterator.previous();
-            String ch = String.valueOf(c);
-            harf.setText(ch);
-            updateRadioGroupVisibility(ch);
-            checkWhatSound();
-        }
+        // Obsolete, replaced by RecyclerView navigation
     }
 
     /**
