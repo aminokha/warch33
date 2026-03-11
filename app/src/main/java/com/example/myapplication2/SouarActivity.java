@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +20,9 @@ import android.widget.Toast;
 import androidx.annotation.OptIn;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButtonToggleGroup;
-import androidx.cardview.widget.CardView;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.Player;
 import androidx.media3.common.util.UnstableApi;
@@ -27,6 +30,9 @@ import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.ui.PlayerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.myapplication2.databinding.SouarLayoutBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.content.pm.ActivityInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +56,7 @@ public class SouarActivity extends AppCompatActivity {
     private int messageOrdre = 1;
     SharedPreferences sharedPreferences;
     private boolean isUpdatingFromSeekBar = false;
+    private boolean isFullscreen = false;
     private static final long BACK_PRESS_INTERVAL_MS = 2000;
     private long lastBackPressedTime;
 
@@ -119,6 +126,14 @@ public class SouarActivity extends AppCompatActivity {
         sura_name = findViewById(R.id.sura_name);
         aya_number = findViewById(R.id.aya_number);
         toggleGroupAya = findViewById(R.id.toggle_group_aya);
+        
+        playerView.setFullscreenButtonClickListener(isFullScreenRequested -> {
+            if (isFullScreenRequested) {
+                enterFullscreen();
+            } else {
+                exitFullscreen();
+            }
+        });
         ayaSelectionLayout = findViewById(R.id.aya_selection_layout);
         recyclerViewSuras = findViewById(R.id.recyclerViewSuras);
 
@@ -271,17 +286,97 @@ public class SouarActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (player != null) {
+            player.release();
+            player = null;
+        }
     }
 
     @Override
     public void onBackPressed() {
-        long now = System.currentTimeMillis();
-        if (now - lastBackPressedTime <= BACK_PRESS_INTERVAL_MS) {
-            super.onBackPressed();
+        // 5. In onBackPressed(), check if isFullscreen, call exitFullscreen() if true, else super.onBackPressed().
+        if (isFullscreen) {
+            exitFullscreen();
         } else {
-            lastBackPressedTime = now;
-            Toast.makeText(this, "اضغط مرة أخرى للخروج", Toast.LENGTH_SHORT).show();
+            long currentTime = System.currentTimeMillis();
+            if (currentTime - lastBackPressedTime < BACK_PRESS_INTERVAL_MS) {
+                super.onBackPressed();
+            } else {
+                Toast.makeText(this, "اضغط مرة أخرى للرجوع", Toast.LENGTH_SHORT).show();
+        lastBackPressedTime = currentTime;
+            }
         }
+    }
+
+    private void setRepeatStatus(String repeatText) {
+        sharedPreferences.edit().putString("repeat", repeatText).apply();
+
+    }
+
+    private void enterFullscreen() {
+        isFullscreen = true;
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+
+        // Hide System UI (Immersive mode)
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+
+        // Hide App UI elements
+        findViewById(R.id.nav_view).setVisibility(View.GONE);
+        findViewById(R.id.recyclerViewSuras).setVisibility(View.GONE);
+        findViewById(R.id.sura_name).setVisibility(View.GONE);
+        findViewById(R.id.pad).setVisibility(View.GONE);
+
+        // Make video player layout match parent
+        com.google.android.material.card.MaterialCardView cardView = (com.google.android.material.card.MaterialCardView) videoLayout;
+        cardView.setRadius(0f);
+        cardView.setStrokeWidth(0);
+        
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) cardView.getLayoutParams();
+        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        params.height = LinearLayout.LayoutParams.MATCH_PARENT;
+        params.setMargins(0, 0, 0, 0);
+        params.weight = 1;
+        cardView.setLayoutParams(params);
+        
+        playerView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+    }
+
+    private void exitFullscreen() {
+        isFullscreen = false;
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+
+        // Show System UI
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        windowInsetsController.show(WindowInsetsCompat.Type.systemBars());
+
+        // Show App UI elements
+        findViewById(R.id.nav_view).setVisibility(View.VISIBLE);
+        findViewById(R.id.recyclerViewSuras).setVisibility(View.VISIBLE);
+        findViewById(R.id.sura_name).setVisibility(View.VISIBLE);
+        findViewById(R.id.pad).setVisibility(View.VISIBLE);
+
+        // Restore video player layout size (approx 36% height based on 0.36 weight, with margins)
+        com.google.android.material.card.MaterialCardView cardView = (com.google.android.material.card.MaterialCardView) videoLayout;
+        float radius = getResources().getDisplayMetrics().density * 24; // 24dp from layout
+        cardView.setRadius(radius);
+        cardView.setStrokeWidth(Math.round(getResources().getDisplayMetrics().density * 1.5f)); // 1.5dp from layout
+        
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) cardView.getLayoutParams();
+        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        params.height = 0;
+        int marginHorizontal = Math.round(getResources().getDisplayMetrics().density * 16); // 16dp
+        int marginTop = Math.round(getResources().getDisplayMetrics().density * 16); // 16dp
+        params.setMargins(marginHorizontal, marginTop, marginHorizontal, 0);
+        params.weight = 2.4f; // 2.4 weight from layout
+        cardView.setLayoutParams(params);
+        
+        playerView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
     }
 
     private void saveState() {

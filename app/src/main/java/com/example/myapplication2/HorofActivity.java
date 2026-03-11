@@ -26,6 +26,10 @@ import java.util.Arrays;
 
 import androidx.annotation.OptIn;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
+import android.content.pm.ActivityInfo;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.Player;
 import androidx.media3.common.util.UnstableApi;
@@ -61,6 +65,7 @@ public class HorofActivity extends AppCompatActivity {
     private boolean isUpdatingFromSeekBar = false;
     private boolean isUpdatingFromEditText = false;
     private boolean isItemChanged = false;
+    private boolean isFullscreen = false;
 
     private RecyclerView recyclerViewHorof;
     private HorofAdapter horofAdapter;
@@ -108,6 +113,26 @@ public class HorofActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // Hide unwanted player controls, keeping only the fullscreen button
+        int[] viewsToHide = {
+            androidx.media3.ui.R.id.exo_play,
+            androidx.media3.ui.R.id.exo_pause,
+            androidx.media3.ui.R.id.exo_progress,
+            androidx.media3.ui.R.id.exo_position,
+            androidx.media3.ui.R.id.exo_duration,
+            androidx.media3.ui.R.id.exo_rew,
+            androidx.media3.ui.R.id.exo_ffwd,
+            androidx.media3.ui.R.id.exo_prev,
+            androidx.media3.ui.R.id.exo_next
+        };
+        for (int id : viewsToHide) {
+            View v = playerView.findViewById(id);
+            if (v != null) {
+                v.setVisibility(View.GONE);
+            }
+        }
+
         setStat();
     }
 
@@ -136,6 +161,14 @@ public class HorofActivity extends AppCompatActivity {
         choice2 = findViewById(R.id.choice2);
         seekBar = findViewById(R.id.seekBar);
         recyclerViewHorof = findViewById(R.id.recyclerViewHorof);
+
+        playerView.setFullscreenButtonClickListener(isFullScreenRequested -> {
+            if (isFullScreenRequested) {
+                enterFullscreen();
+            } else {
+                exitFullscreen();
+            }
+        });
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
@@ -283,12 +316,16 @@ public class HorofActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        long now = System.currentTimeMillis();
-        if (now - lastBackPressedTime <= BACK_PRESS_INTERVAL_MS) {
-            super.onBackPressed();
+        if (isFullscreen) {
+            exitFullscreen();
         } else {
-            lastBackPressedTime = now;
-            Toast.makeText(this, "اضغط مرة أخرى للخروج", Toast.LENGTH_SHORT).show();
+            long currentTime = System.currentTimeMillis();
+            if (currentTime - lastBackPressedTime < BACK_PRESS_INTERVAL_MS) {
+                super.onBackPressed();
+            } else {
+                Toast.makeText(this, "اضغط مرة أخرى للرجوع", Toast.LENGTH_SHORT).show();
+                lastBackPressedTime = currentTime;
+            }
         }
     }
 
@@ -879,6 +916,70 @@ public class HorofActivity extends AppCompatActivity {
             toggleGroupChoice.setLayoutParams(new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, 0));
         }
+    }
+
+    private void enterFullscreen() {
+        isFullscreen = true;
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+
+        // Hide System UI (Immersive mode)
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+
+        // Hide App UI elements
+        findViewById(R.id.nav_view).setVisibility(View.GONE);
+        findViewById(R.id.recyclerViewHorof).setVisibility(View.GONE);
+        findViewById(R.id.settingsCard).setVisibility(View.GONE);
+
+        // Make video player layout match parent
+        com.google.android.material.card.MaterialCardView cardView = (com.google.android.material.card.MaterialCardView) videoLayout;
+        cardView.setRadius(0f);
+        cardView.setStrokeWidth(0);
+
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) cardView.getLayoutParams();
+        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        params.height = LinearLayout.LayoutParams.MATCH_PARENT;
+        params.setMargins(0, 0, 0, 0);
+        params.weight = 1;
+        cardView.setLayoutParams(params);
+
+        playerView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+    }
+
+    private void exitFullscreen() {
+        isFullscreen = false;
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+
+        // Show System UI
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        windowInsetsController.show(WindowInsetsCompat.Type.systemBars());
+
+        // Show App UI elements
+        findViewById(R.id.nav_view).setVisibility(View.VISIBLE);
+        findViewById(R.id.recyclerViewHorof).setVisibility(View.VISIBLE);
+        findViewById(R.id.settingsCard).setVisibility(View.VISIBLE);
+
+        // Restore video player layout size
+        com.google.android.material.card.MaterialCardView cardView = (com.google.android.material.card.MaterialCardView) videoLayout;
+        float radius = getResources().getDisplayMetrics().density * 24; // 24dp from layout
+        cardView.setRadius(radius);
+        cardView.setStrokeWidth(Math.round(getResources().getDisplayMetrics().density * 1.5f)); // 1.5dp from layout
+
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) cardView.getLayoutParams();
+        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        params.height = 0;
+        int marginHorizontal = Math.round(getResources().getDisplayMetrics().density * 24); // 24dp layout_marginHorizontal
+        int marginVertical = Math.round(getResources().getDisplayMetrics().density * 16);   // 16dp layout_marginVertical
+        params.setMargins(marginHorizontal, marginVertical, marginHorizontal, marginVertical);
+        params.weight = 2.3f; // 2.3 weight from layout
+        cardView.setLayoutParams(params);
+
+        playerView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
     }
 
 }

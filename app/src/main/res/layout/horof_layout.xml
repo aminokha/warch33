@@ -40,7 +40,9 @@
                 app:resize_mode="fit"
                 app:surface_type="texture_view"
                 app:shutter_background_color="@android:color/transparent"
-                app:use_controller="false" />
+                app:use_controller="true"
+                app:show_timeout="1000"
+                app:auto_show="false" />
         </FrameLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -64,6 +66,7 @@
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/settingsCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="20dp"

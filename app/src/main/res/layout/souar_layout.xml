@@ -40,6 +40,8 @@
                 app:resize_mode="fit"
                 app:surface_type="texture_view"
                 app:shutter_background_color="@android:color/transparent"
+                app:show_timeout="2000"
+                app:auto_show="false"
                 app:use_controller="true" />
         </FrameLayout>
     </com.google.android.material.card.MaterialCardView>
